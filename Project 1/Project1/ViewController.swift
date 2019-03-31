@@ -17,6 +17,8 @@ class ViewController: UITableViewController {
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(recommendedTapped))
+        
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
@@ -48,6 +50,14 @@ class ViewController: UITableViewController {
             vc.totalImages = pictures.count
             vc.imageIndex = indexPath.row + 1
         }
+    }
+    
+    @objc func recommendedTapped() {
+        let message = "This is a great app!\n\nhttps://github.com/StartingCoding/100DaysOfSwift/tree/master/Project%201"
+        
+        let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
+        navigationController?.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
 }
 
