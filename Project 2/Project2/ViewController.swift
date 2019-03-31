@@ -32,6 +32,8 @@ class ViewController: UIViewController {
         button1.layer.borderColor = UIColor.lightGray.cgColor
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(displayScore))
     }
     
     func askQuestion(action: UIAlertAction! = nil) {
@@ -70,6 +72,20 @@ class ViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
             present(ac, animated: true)
         }
+    }
+    
+    @objc func displayScore() {
+        let vc = UIAlertController(title: "Youre score is:", message: "\(score)", preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "Continue to Play Guess The Flag", style: .default))
+        vc.addAction(UIAlertAction(title: "Share youre score", style: .default, handler: shareScore))
+        present(vc, animated: true)
+    }
+    
+    func shareScore(action: UIAlertAction! = nil) {
+        let message = "I have \(score) points."
+        let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
 }
 
