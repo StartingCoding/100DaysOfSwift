@@ -30,6 +30,7 @@ class ViewController: UITableViewController {
             }
         }
         pictures.sort()
+        print(items)
         print(pictures)
     }
 
