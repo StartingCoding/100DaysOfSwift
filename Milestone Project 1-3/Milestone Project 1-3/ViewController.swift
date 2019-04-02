@@ -28,6 +28,7 @@ class ViewController: UITableViewController {
                 countries.append(labelText)
             }
         }
+        countries.sort()
      }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
