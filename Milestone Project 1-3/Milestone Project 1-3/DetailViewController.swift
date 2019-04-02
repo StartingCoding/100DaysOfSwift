@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareFlag))
+        
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
             title = "\(imageToLoad.uppercased())"
@@ -31,5 +33,16 @@ class DetailViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    @objc func shareFlag() {
+        guard let image = imageView.image?.jpegData(compressionQuality: 0.5) else {
+            print("No image found!")
+            return
+        }
+        
+        let ac = UIActivityViewController(activityItems: [image, selectedImage!.uppercased()], applicationActivities: [])
+        ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(ac, animated: true)
     }
 }
