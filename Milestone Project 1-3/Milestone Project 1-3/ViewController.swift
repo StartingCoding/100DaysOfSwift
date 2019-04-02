@@ -18,18 +18,16 @@ class ViewController: UITableViewController {
         
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
+        let items = try! fm.contentsOfDirectory(atPath: path)
         
-        let contents = try! fm.contentsOfDirectory(atPath: path)
-        
-        for content in contents {
-            if content.hasSuffix(".png") {
-                countries.append(content)
+        for item in items {
+            if item.hasSuffix("png") && !item.contains("@") {
+                var labelText = item
+                let range = labelText.index(labelText.endIndex, offsetBy: -4)..<labelText.endIndex
+                labelText.removeSubrange(range)
+                countries.append(labelText)
             }
         }
-        print(fm)
-        print(path)
-        print(contents)
-        print(countries)
      }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,8 +36,18 @@ class ViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Flag", for: indexPath)
-        cell.textLabel?.text = countries[indexPath.row]
+        cell.imageView?.image = UIImage(named: "\(countries[indexPath.row])")
+        cell.imageView?.layer.borderWidth = 1
+        cell.imageView?.layer.borderColor = UIColor.lightGray.cgColor
+        cell.textLabel?.text = countries[indexPath.row].uppercased()
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.selectedImage = countries[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
