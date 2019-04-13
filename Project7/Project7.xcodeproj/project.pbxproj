@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB1EDE922261D46E003EF5AF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1EDE912261D46E003EF5AF /* DetailViewController.swift */; };
 		ABF7592D22609409003C2ECE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7592C22609409003C2ECE /* AppDelegate.swift */; };
 		ABF7592F22609409003C2ECE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7592E22609409003C2ECE /* ViewController.swift */; };
 		ABF7593222609409003C2ECE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF7593022609409003C2ECE /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB1EDE912261D46E003EF5AF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		ABF7592922609409003C2ECE /* Project7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF7592C22609409003C2ECE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF7592E22609409003C2ECE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				ABF7592C22609409003C2ECE /* AppDelegate.swift */,
 				ABF7592E22609409003C2ECE /* ViewController.swift */,
+				AB1EDE912261D46E003EF5AF /* DetailViewController.swift */,
 				ABF7593E2260B713003C2ECE /* Petition.swift */,
 				ABF759402260B867003C2ECE /* Petitions.swift */,
 				ABF7593022609409003C2ECE /* Main.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				ABF7592F22609409003C2ECE /* ViewController.swift in Sources */,
 				ABF759412260B867003C2ECE /* Petitions.swift in Sources */,
+				AB1EDE922261D46E003EF5AF /* DetailViewController.swift in Sources */,
 				ABF7592D22609409003C2ECE /* AppDelegate.swift in Sources */,
 				ABF7593F2260B713003C2ECE /* Petition.swift in Sources */,
 			);
