@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UITableViewController {
     var petitions = [Petition]()
+    var filteredResults = [Petition]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credit", style: .plain, target: self, action: #selector(showCredit))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(submitFilter))
         
         let urlString: String
         
@@ -30,6 +34,36 @@ class ViewController: UITableViewController {
         }
         
         showError()
+    }
+    
+    @objc func submitFilter() {
+        let ac = UIAlertController(title: "What are you looking for?", message: nil, preferredStyle: .alert)
+        
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Search", style: .default) {
+            [weak self, weak ac] _ in
+            guard let filterString = ac?.textFields?[0].text else { return }
+            self?.search(filter: filterString)
+        })
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+    
+    func search(filter: String) {
+        for item in petitions {
+            if item.title.contains(filter) || item.body.contains(filter) {
+                filteredResults.insert(item, at: 0)
+            }
+        }
+        petitions = filteredResults
+        tableView.reloadData()
+    }
+    
+    @objc func showCredit() {
+        let ac = UIAlertController(title: "Credit:", message: "This data comes from the We The People API of the Whitehouse.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     func showError() {
