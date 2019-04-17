@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     
     var level = 1
     
+    var numberOfItemMatched = 0
+    
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
@@ -121,6 +123,10 @@ class ViewController: UIViewController {
                 
                 let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
+                
+                letterButton.layer.borderWidth = 1
+                letterButton.layer.borderColor = UIColor.lightGray.cgColor
+                
                 buttonsView.addSubview(letterButton)
                 letterButtons.append(letterButton)
             }
@@ -131,7 +137,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         loadLevel()
-        
     }
     
     @objc func letterTapped(_ sender: UIButton) {
@@ -154,17 +159,25 @@ class ViewController: UIViewController {
             
             currentAnswer.text = ""
             score += 1
+            numberOfItemMatched += 1
             
-            if score % 7 == 0 {
+            if numberOfItemMatched == solutions.count {
                 let ac = UIAlertController(title: "Well Done!", message: "Are you ready for the next level?", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Let's Go|", style: .default, handler: levelUp))
+                ac.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            let ac = UIAlertController(title: "Nope, I think you need another guess", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
+            
+            score -= 1
         }
     }
     
     func levelUp(action: UIAlertAction) {
         level += 1
+        numberOfItemMatched = 0
         
         solutions.removeAll(keepingCapacity: true)
         loadLevel()
