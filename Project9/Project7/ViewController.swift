@@ -48,19 +48,21 @@ class ViewController: UITableViewController {
         ac.addAction(UIAlertAction(title: "Search", style: .default) {
             [weak self, weak ac] _ in
             guard let filterString = ac?.textFields?[0].text else { return }
-            self?.search(filter: filterString)
+            self?.performSelector(inBackground: #selector(self?.search(filter:)), with: filterString)
         })
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
     
-    func search(filter: String) {
+    @objc func search(filter: String) {
 //        for item in filteredResults {
 //            filteredResults.removeAll(where: { !item.title.contains(filter) || !item.body.contains(filter) } )
 //        }
         filteredResults = filteredResults.filter { $0.title.contains(filter) || $0.body.contains(filter) }
-        tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     @objc func showCredit() {
