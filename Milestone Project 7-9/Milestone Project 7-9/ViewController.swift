@@ -26,24 +26,53 @@ class ViewController: UIViewController {
         levelLabel = UILabel()
         levelLabel.translatesAutoresizingMaskIntoConstraints = false
         levelLabel.text = "Level: \(level)"
-        levelLabel.backgroundColor = .red
         levelLabel.font = UIFont.systemFont(ofSize: 22)
         view.addSubview(levelLabel)
         
         wordToGuessLabel = UILabel()
         wordToGuessLabel.translatesAutoresizingMaskIntoConstraints = false
         wordToGuessLabel.text = "?????"
-        wordToGuessLabel.backgroundColor = .blue
         wordToGuessLabel.font = UIFont.systemFont(ofSize: 44)
         view.addSubview(wordToGuessLabel)
+        
+        let charButtonsGroup = UIView()
+        charButtonsGroup.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(charButtonsGroup)
         
         NSLayoutConstraint.activate([
             levelLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             levelLabel.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
             
             wordToGuessLabel.topAnchor.constraint(equalTo: levelLabel.bottomAnchor, constant: 20),
-            wordToGuessLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            wordToGuessLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            charButtonsGroup.topAnchor.constraint(equalTo: wordToGuessLabel.bottomAnchor, constant: 20),
+            charButtonsGroup.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            charButtonsGroup.widthAnchor.constraint(equalToConstant: 700),
+            charButtonsGroup.heightAnchor.constraint(equalToConstant: 300)
             ])
+        
+        let width = 100
+        let height = 100
+        
+        for row in 0..<3 {
+            for column in 0..<7 {
+                let button = UIButton(type: .system)
+                button.titleLabel?.font = UIFont.systemFont(ofSize: 36)
+                button.setTitle("W", for: .normal)
+                button.widthAnchor.constraint(equalToConstant: 100)
+                button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+                
+                let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
+                button.frame = frame
+                
+                button.layer.borderWidth = 1
+                button.layer.borderColor = UIColor.lightGray.cgColor
+                
+                charButtonsGroup.addSubview(button)
+                charButtons.append(button)
+            }
+        }
     }
 
     override func viewDidLoad() {
@@ -61,5 +90,8 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func buttonTapped() {
+        
+    }
 }
 
