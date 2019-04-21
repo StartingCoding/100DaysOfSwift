@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     var wordToGuess = "something"
     var userWord = ""
     var charButtons = [UIButton]()
+    var loss = 0
     
+    var lossLabel : UILabel!
     var wordToGuessLabel: UILabel!
     var usedWordLabel: UILabel!
     var levelLabel: UILabel!
@@ -29,9 +31,15 @@ class ViewController: UIViewController {
         levelLabel.font = UIFont.systemFont(ofSize: 22)
         view.addSubview(levelLabel)
         
+        lossLabel = UILabel()
+        lossLabel.translatesAutoresizingMaskIntoConstraints = false
+        lossLabel.text = "\(loss)"
+        lossLabel.font = UIFont.systemFont(ofSize: 33)
+        view.addSubview(lossLabel)
+        
         wordToGuessLabel = UILabel()
         wordToGuessLabel.translatesAutoresizingMaskIntoConstraints = false
-        wordToGuessLabel.text = "?????"
+        wordToGuessLabel.text = String.init(repeating: "?", count: wordToGuess.count)
         wordToGuessLabel.font = UIFont.systemFont(ofSize: 44)
         view.addSubview(wordToGuessLabel)
         
@@ -43,24 +51,27 @@ class ViewController: UIViewController {
             levelLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             levelLabel.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
             
-            wordToGuessLabel.topAnchor.constraint(equalTo: levelLabel.bottomAnchor, constant: 20),
+            lossLabel.topAnchor.constraint(equalTo: levelLabel.bottomAnchor, constant: 20),
+            lossLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            wordToGuessLabel.topAnchor.constraint(equalTo: lossLabel.bottomAnchor, constant: 20),
             wordToGuessLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            charButtonsGroup.topAnchor.constraint(equalTo: wordToGuessLabel.bottomAnchor, constant: 20),
+            charButtonsGroup.topAnchor.constraint(equalTo: wordToGuessLabel.bottomAnchor, constant: 40),
             charButtonsGroup.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            charButtonsGroup.widthAnchor.constraint(equalToConstant: 700),
+            charButtonsGroup.widthAnchor.constraint(equalToConstant: 650),
             charButtonsGroup.heightAnchor.constraint(equalToConstant: 300)
             ])
         
-        let width = 100
+        let width = 50
         let height = 100
         
-        for row in 0..<3 {
-            for column in 0..<7 {
+        for row in 0..<2 {
+            for column in 0..<13 {
                 let button = UIButton(type: .system)
                 button.titleLabel?.font = UIFont.systemFont(ofSize: 36)
                 button.setTitle("W", for: .normal)
-                button.widthAnchor.constraint(equalToConstant: 100)
+                button.widthAnchor.constraint(equalToConstant: 50)
                 button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
                 
                 let frame = CGRect(x: column * width, y: row * height, width: width, height: height)
@@ -73,15 +84,19 @@ class ViewController: UIViewController {
                 charButtons.append(button)
             }
         }
+        
+        for (index, char) in "abcdefghijklmnopqrstuvwxyz".enumerated() {
+            charButtons[index].setTitle(String(char).uppercased(), for: .normal)
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadLevel()
+        performSelector(inBackground: #selector(loadLevel), with: nil)
     }
     
-    func loadLevel() {
+    @objc func loadLevel() {
         if let url = Bundle.main.url(forResource: "words", withExtension: "txt") {
             if let contentUrl = try? String(contentsOf: url) {
                 let parts = contentUrl.components(separatedBy: "\n")
@@ -90,8 +105,13 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func buttonTapped() {
+    @objc func buttonTapped(_ sender: UIButton) {
+        guard let char = sender.titleLabel?.text else { return }
+        guard let word = wordToGuessLabel.text else { return }
         
+        if word.contains(char) {
+            
+        }
     }
 }
 
