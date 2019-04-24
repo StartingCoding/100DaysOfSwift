@@ -9,16 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var level = 0
-    var wordToGuess = "something"
-    var userWord = ""
-    var charButtons = [UIButton]()
-    var loss = 0
+    var level = 0 {
+        willSet {
+            levelLabel.text = "\(newValue)"
+        }
+    }
+    var loss = 0 {
+        willSet {
+            lossLabel.text = "\(newValue)"
+        }
+    }
     
+    var wordToGuess = "something"
+    var charButtons = [UIButton]()
+    
+    var levelLabel: UILabel!
     var lossLabel : UILabel!
     var wordToGuessLabel: UILabel!
-    var usedWordLabel: UILabel!
-    var levelLabel: UILabel!
     
     override func loadView() {
         
@@ -27,7 +34,7 @@ class ViewController: UIViewController {
         
         levelLabel = UILabel()
         levelLabel.translatesAutoresizingMaskIntoConstraints = false
-        levelLabel.text = "Level: \(level)"
+        levelLabel.text = "0"
         levelLabel.font = UIFont.systemFont(ofSize: 22)
         view.addSubview(levelLabel)
         
@@ -93,24 +100,73 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        performSelector(inBackground: #selector(loadLevel), with: nil)
+        newGame()
     }
     
-    @objc func loadLevel() {
+    func newGame() {
+        level = 0
+        loss = 0
+        loadLevel()
+    }
+    
+    func loadLevel() {
         if let url = Bundle.main.url(forResource: "words", withExtension: "txt") {
             if let contentUrl = try? String(contentsOf: url) {
                 let parts = contentUrl.components(separatedBy: "\n")
+                
+                if level == parts.count - 1 {
+                    let ac = UIAlertController(title: "Winner Winner Chicken Dinner", message: nil, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                    ac.addAction(UIAlertAction(title: "Restart Game", style: .default) { [weak self] _ in
+                        self?.newGame()
+                    })
+                    present(ac, animated: true)
+                }
+                
                 wordToGuess = parts[level]
             }
         }
+        
+        for button in charButtons {
+            button.isHidden = false
+        }
+        
+        wordToGuessLabel.text = String.init(repeating: "?", count: wordToGuess.count)
     }
     
     @objc func buttonTapped(_ sender: UIButton) {
         guard let char = sender.titleLabel?.text else { return }
-        guard let word = wordToGuessLabel.text else { return }
         
-        if word.contains(char) {
+        if wordToGuess.contains(char.lowercased()) {
+            var parts = wordToGuessLabel.text?.map { $0.uppercased() }
             
+            for (index, item) in wordToGuess.enumerated() {
+                if String(item) == char.lowercased() {
+                    parts![index] = char.uppercased()
+                }
+            }
+            
+            wordToGuessLabel.text = parts?.joined()
+            
+            sender.isHidden = true
+            
+            if wordToGuessLabel.text?.lowercased() == wordToGuess {
+                level += 1
+                loss = 0
+                loadLevel()
+            }
+        } else {
+            loss += 1
+            sender.isHidden = true
+        }
+        
+        if loss == 7 {
+            let ac = UIAlertController(title: "You Lose The Game", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Try Again!", style: .default) { [weak self] _ in
+                self?.loss = 0
+                self?.loadLevel()
+            })
+            present(ac, animated: true)
         }
     }
 }
