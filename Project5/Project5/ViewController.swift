@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UITableViewController {
     var allWords = [String]()
     var usedWords = [String]()
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,9 @@ class ViewController: UITableViewController {
         }
         
         startGame()
+        
+        usedWords = defaults.object(forKey: "usedWords") as? [String] ?? [String]()
+        title = defaults.object(forKey: "title") as? String ?? allWords.randomElement()
     }
     
     @objc func startGame() {
@@ -72,6 +77,8 @@ class ViewController: UITableViewController {
                         if !(lowerAnswer == title) {
                             usedWords.insert(lowerAnswer, at: 0)
                             
+                            save()
+                            
                             let indexPath = IndexPath(row: 0, section: 0)
                             
                             tableView.insertRows(at: [indexPath], with: .automatic)
@@ -109,16 +116,6 @@ class ViewController: UITableViewController {
     }
     
     func isOriginal(word: String) -> Bool {
-        /* This is for Uppercased word
-        var tempUsedWords = [String]()
-        
-        for item in usedWords {
-            tempUsedWords.append(item.lowercased())
-        }
-        
-        return !tempUsedWords.contains(word)
-        */
-        
         return !usedWords.contains(word)
     }
     
@@ -134,6 +131,11 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
+    }
+    
+    func save() {
+        defaults.set(usedWords, forKey: "usedWords")
+        defaults.set(title, forKey: "title")
     }
 }
 
