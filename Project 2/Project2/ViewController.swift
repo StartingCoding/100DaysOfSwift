@@ -17,9 +17,14 @@ class ViewController: UIViewController {
     var score = 0
     var correctAnswer = 0
     var numberOfQuestions = 0
+    var highScore = 0
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        highScore = defaults.integer(forKey: "highScore")
         
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
@@ -62,8 +67,17 @@ class ViewController: UIViewController {
         }
         
         if numberOfQuestions == 10 {
+            if highScore < score {
+                highScore = score
+                save()
+            }
             let final = UIAlertController(title: "You're final score is:", message: "\(score)", preferredStyle: .alert)
             final.addAction(UIAlertAction(title: "Restart", style: .default, handler: askQuestion))
+            final.addAction(UIAlertAction(title: "View HighScore", style: .default) { [weak self] _ in
+                let ac = UIAlertController(title: "Your HighScore is: \(self!.highScore)", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Restart", style: .cancel, handler: self?.askQuestion))
+                self?.present(ac, animated: true)
+            })
             present(final, animated: true)
             score = 0
             numberOfQuestions = 0
@@ -86,6 +100,10 @@ class ViewController: UIViewController {
         let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
+    }
+    
+    func save() {
+        defaults.set(highScore, forKey: "highScore")
     }
 }
 
