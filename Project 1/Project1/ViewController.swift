@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UITableViewController {
     var pictures = [String]()
+    var views = [Int]()
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,8 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(recommendedTapped))
         
         performSelector(inBackground: #selector(loadPics), with: nil)
+        
+        views = defaults.object(forKey: "views") as? [Int] ?? Array(repeating: 0, count: pictures.count)
     }
     
     @objc func loadPics() {
@@ -44,10 +49,14 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         cell.textLabel?.text = pictures[indexPath.row]
+        cell.detailTextLabel?.text = "Views: \(views[indexPath.row])"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        views[indexPath.row] += 1
+        save()
+        tableView.reloadData()
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.selectedImage = pictures[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
@@ -62,6 +71,11 @@ class ViewController: UITableViewController {
         let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
         navigationController?.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
+    }
+    
+    func save() {
+        defaults.set(views, forKey: "views")
+        print(views)
     }
 }
 
