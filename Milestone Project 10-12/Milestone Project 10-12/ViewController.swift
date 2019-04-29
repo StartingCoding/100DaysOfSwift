@@ -32,25 +32,33 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     
     @objc func takePic() {
         let picker = UIImagePickerController()
+        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             picker.sourceType = .camera
         } else {
             picker.sourceType = .photoLibrary
         }
+        
         picker.allowsEditing = true
         picker.delegate = self
+        
         present(picker, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.editedImage] as? UIImage
-        let imageData = image?.jpegData(compressionQuality: 0.8)
-        if let imageData = imageData {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        
+        if let imageData = image.jpegData(compressionQuality: 0.8) {
             images.insert(imageData, at: 0)
             caption.insert("test", at: 0)
             tableView.reloadData()
         }
-        picker.dismiss(animated: true)
+        
+        dismiss(animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
 
