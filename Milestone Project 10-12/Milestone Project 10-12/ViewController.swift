@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var caption = [String]()
-    var images = [Data]()
+    var images = [UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,17 +48,19 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         
-        if let imageData = image.jpegData(compressionQuality: 0.8) {
-            images.insert(imageData, at: 0)
-            caption.insert("test", at: 0)
-            tableView.reloadData()
-        }
+        images.insert(image, at: 0)
+        caption.insert("Photo", at: 0)
+        tableView.reloadData()
         
         dismiss(animated: true)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailImage") as? DetailImage {
+            vc.image = images[indexPath.row]
+            vc.photoName = caption[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

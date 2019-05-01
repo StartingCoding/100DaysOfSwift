@@ -47,21 +47,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IXU-e2-K2p">
-                                <rect key="frame" x="87" y="44" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x4-9x-Tds">
+                                <rect key="frame" x="184" y="64" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IXU-e2-K2p">
+                                <rect key="frame" x="20" y="93" width="374" height="550"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="2PK-qv-W1Q"/>
+                                    <constraint firstAttribute="height" constant="550" id="Tbz-Ie-iXF"/>
+                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5e-dh-zMf">
+                                <rect key="frame" x="147" y="651" width="120" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="haQ-tR-14a"/>
+                                    <constraint firstAttribute="width" constant="120" id="vJq-FA-R6A"/>
+                                </constraints>
+                                <state key="normal" title="Rename Photo"/>
+                                <connections>
+                                    <action selector="renamePhoto:" destination="WPp-U3-DB8" eventType="touchUpInside" id="fK1-RG-wmF"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.9177101170091323" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="O5e-dh-zMf" firstAttribute="centerX" secondItem="GIN-w7-Ue8" secondAttribute="centerX" id="03N-dC-dMF"/>
+                            <constraint firstItem="IXU-e2-K2p" firstAttribute="centerX" secondItem="GIN-w7-Ue8" secondAttribute="centerX" id="GMC-C6-Y5W"/>
+                            <constraint firstItem="2x4-9x-Tds" firstAttribute="centerX" secondItem="GIN-w7-Ue8" secondAttribute="centerX" id="Twr-HE-flZ"/>
+                            <constraint firstItem="IXU-e2-K2p" firstAttribute="top" secondItem="2x4-9x-Tds" secondAttribute="bottom" constant="8" id="YDU-ka-AHY"/>
+                            <constraint firstItem="2x4-9x-Tds" firstAttribute="top" secondItem="WvD-Mh-SnS" secondAttribute="top" constant="20" id="k2z-4t-aPo"/>
+                            <constraint firstItem="O5e-dh-zMf" firstAttribute="top" secondItem="IXU-e2-K2p" secondAttribute="bottom" constant="8" id="rwn-RQ-zjv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WvD-Mh-SnS"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="IXU-e2-K2p" id="6AY-8V-D2W"/>
+                        <outlet property="titlePhoto" destination="2x4-9x-Tds" id="s1l-8r-hEr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTb-J2-Ku2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="97"/>
+            <point key="canvasLocation" x="1989.8550724637682" y="96.428571428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z7G-vW-EPh">
