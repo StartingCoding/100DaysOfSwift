@@ -45,7 +45,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FF7-Qw-hd7">
                                 <rect key="frame" x="96" y="761" width="300" height="30"/>
                                 <connections>
-                                    <action selector="intensityChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="brO-j3-hay"/>
+                                    <action selector="intensityChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="B7T-h5-f3J"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLJ-W9-Waa">
@@ -93,7 +93,7 @@
                     <navigationItem key="navigationItem" id="bVA-wJ-TLW"/>
                     <connections>
                         <outlet property="imageView" destination="kKA-nV-78R" id="swp-0F-aRX"/>
-                        <outlet property="instensity" destination="FF7-Qw-hd7" id="eBZ-eO-xbI"/>
+                        <outlet property="intensity" destination="FF7-Qw-hd7" id="jya-wf-7RF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
