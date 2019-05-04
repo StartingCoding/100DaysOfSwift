@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2V0-Da-7iP">
-                                <rect key="frame" x="20" y="110" width="374" height="623"/>
+                                <rect key="frame" x="20" y="110" width="374" height="591"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kKA-nV-78R">
-                                        <rect key="frame" x="10" y="10" width="354" height="603"/>
+                                        <rect key="frame" x="10" y="10" width="354" height="571"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,19 +69,36 @@
                                     <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iBP-JS-emH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mns-06-JBw">
+                                <rect key="frame" x="20" y="725.5" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="WFd-fj-RBL" userLabel="Radius">
+                                <rect key="frame" x="96" y="721" width="300" height="31"/>
+                                <connections>
+                                    <action selector="radiusChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZHu-Mc-af3"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2V0-Da-7iP" firstAttribute="trailing" secondItem="Fzn-fI-6JQ" secondAttribute="trailing" id="1KE-wB-sTq"/>
+                            <constraint firstItem="Mns-06-JBw" firstAttribute="leading" secondItem="g2U-mx-NXo" secondAttribute="leading" id="1pk-Dl-dPz"/>
+                            <constraint firstItem="WFd-fj-RBL" firstAttribute="leading" secondItem="FF7-Qw-hd7" secondAttribute="leading" id="6vm-fF-3uh"/>
                             <constraint firstItem="FF7-Qw-hd7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Dgb-rX-eHo"/>
                             <constraint firstItem="g2U-mx-NXo" firstAttribute="leading" secondItem="BLJ-W9-Waa" secondAttribute="leading" id="Ifb-ud-qBl"/>
                             <constraint firstItem="2V0-Da-7iP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="OrJ-be-NLd"/>
                             <constraint firstItem="2V0-Da-7iP" firstAttribute="leading" secondItem="g2U-mx-NXo" secondAttribute="leading" id="TiI-LQ-fVU"/>
                             <constraint firstItem="BLJ-W9-Waa" firstAttribute="top" secondItem="FF7-Qw-hd7" secondAttribute="bottom" constant="8" symbolic="YES" id="Tnn-tl-Nqa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BLJ-W9-Waa" secondAttribute="bottom" constant="20" id="Vap-fu-9TF"/>
-                            <constraint firstItem="FF7-Qw-hd7" firstAttribute="top" secondItem="2V0-Da-7iP" secondAttribute="bottom" constant="28" id="Vye-CC-F31"/>
+                            <constraint firstItem="WFd-fj-RBL" firstAttribute="top" secondItem="2V0-Da-7iP" secondAttribute="bottom" constant="20" id="Vye-CC-F31"/>
                             <constraint firstItem="2V0-Da-7iP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Yt3-sW-Qgo"/>
+                            <constraint firstItem="WFd-fj-RBL" firstAttribute="trailing" secondItem="FF7-Qw-hd7" secondAttribute="trailing" id="alh-3E-tOu"/>
                             <constraint firstItem="2V0-Da-7iP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dLl-cA-K9e"/>
+                            <constraint firstItem="FF7-Qw-hd7" firstAttribute="top" secondItem="WFd-fj-RBL" secondAttribute="bottom" constant="10" id="hgE-EC-S6y"/>
+                            <constraint firstItem="WFd-fj-RBL" firstAttribute="centerY" secondItem="Mns-06-JBw" secondAttribute="centerY" id="j7v-wn-FR8"/>
                             <constraint firstItem="g2U-mx-NXo" firstAttribute="centerY" secondItem="FF7-Qw-hd7" secondAttribute="centerY" id="mHZ-ka-yvu"/>
                             <constraint firstItem="FF7-Qw-hd7" firstAttribute="leading" secondItem="g2U-mx-NXo" secondAttribute="trailing" constant="8" symbolic="YES" id="sHb-Sc-mSK"/>
                             <constraint firstItem="BLJ-W9-Waa" firstAttribute="top" secondItem="g2U-mx-NXo" secondAttribute="bottom" constant="12" id="tnx-K3-dua"/>
@@ -92,8 +109,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="bVA-wJ-TLW"/>
                     <connections>
+                        <outlet property="changeFilterButton" destination="BLJ-W9-Waa" id="8Wj-6x-mfv"/>
                         <outlet property="imageView" destination="kKA-nV-78R" id="swp-0F-aRX"/>
                         <outlet property="intensity" destination="FF7-Qw-hd7" id="jya-wf-7RF"/>
+                        <outlet property="radius" destination="WFd-fj-RBL" id="qUo-hQ-f9N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
