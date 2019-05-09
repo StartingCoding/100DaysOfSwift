@@ -144,7 +144,10 @@ class ViewController: UIViewController {
         
         currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
         activatedButton.append(sender)
-        sender.isHidden = true
+        //sender.isHidden = true
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseOut], animations: {
+            sender.alpha = 0
+        })
     }
     
     @objc func submitTapped(_ sender: UIButton) {
@@ -183,7 +186,10 @@ class ViewController: UIViewController {
         loadLevel()
         
         for button in letterButtons {
-            button.isHidden = false
+            //button.isHidden = false
+            UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+                button.alpha = 1
+            })
         }
     }
     
@@ -191,7 +197,10 @@ class ViewController: UIViewController {
         currentAnswer.text = ""
         
         for button in activatedButton {
-            button.isHidden = false
+            //button.isHidden = false
+            UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+                button.alpha = 1
+            })
         }
         
         activatedButton.removeAll()
