@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB9A11222285BCD00066044A /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9A11212285BCD00066044A /* Picture.swift */; };
 		ABD59A8F2277768300979C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD59A8E2277768300979C3B /* AppDelegate.swift */; };
 		ABD59A912277768300979C3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD59A902277768300979C3B /* ViewController.swift */; };
 		ABD59A942277768300979C3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD59A922277768300979C3B /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB9A11212285BCD00066044A /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		ABD59A8B2277768300979C3B /* Milestone Project 10-12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone Project 10-12.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD59A8E2277768300979C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABD59A902277768300979C3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				ABD59A8E2277768300979C3B /* AppDelegate.swift */,
 				ABD59A902277768300979C3B /* ViewController.swift */,
+				AB9A11212285BCD00066044A /* Picture.swift */,
 				ABD59AA0227786FA00979C3B /* DetailImage.swift */,
 				ABD59A922277768300979C3B /* Main.storyboard */,
 				ABD59A952277768500979C3B /* Assets.xcassets */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB9A11222285BCD00066044A /* Picture.swift in Sources */,
 				ABD59A912277768300979C3B /* ViewController.swift in Sources */,
 				ABD59A8F2277768300979C3B /* AppDelegate.swift in Sources */,
 				ABD59AA1227786FA00979C3B /* DetailImage.swift in Sources */,
