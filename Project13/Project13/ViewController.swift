@@ -21,19 +21,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet var changeFilterButton: UIButton!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        imageView.alpha = 0
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
-            self.imageView.alpha = 1
-        })
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        imageView.alpha = 0
+//    }
+//
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+//            self.imageView.alpha = 1
+//        })
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +47,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @objc func importPicture() {
+        imageView.alpha = 0
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
@@ -55,12 +56,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
-        dismiss(animated: true)
         currentImage = image
         
         let beginImage = CIImage(image: currentImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         applyProcessing()
+        
+        dismiss(animated: true) {
+            UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+                self.imageView.alpha = 1
+            })
+        }
     }
     
     @IBAction func changeFilter(_ sender: UIButton) {
