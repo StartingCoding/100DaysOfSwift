@@ -75,7 +75,6 @@ class ViewController: UITableViewController {
     
     func save() {
         defaults.set(views, forKey: "views")
-        print(views)
     }
 }
 
