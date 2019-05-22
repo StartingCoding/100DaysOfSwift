@@ -1,0 +1,1751 @@
+[{
+    "name": "Afghanistan",
+    "capital": "Kabul",
+    "region": "Asia",
+    "population": 27657145,
+    "demonym": "Afghan",
+    "nativeName": "افغانستان"
+}, {
+    "name": "Åland Islands",
+    "capital": "Mariehamn",
+    "region": "Europe",
+    "population": 28875,
+    "demonym": "Ålandish",
+    "nativeName": "Åland"
+}, {
+    "name": "Albania",
+    "capital": "Tirana",
+    "region": "Europe",
+    "population": 2886026,
+    "demonym": "Albanian",
+    "nativeName": "Shqipëria"
+}, {
+    "name": "Algeria",
+    "capital": "Algiers",
+    "region": "Africa",
+    "population": 40400000,
+    "demonym": "Algerian",
+    "nativeName": "الجزائر"
+}, {
+    "name": "American Samoa",
+    "capital": "Pago Pago",
+    "region": "Oceania",
+    "population": 57100,
+    "demonym": "American Samoan",
+    "nativeName": "American Samoa"
+}, {
+    "name": "Andorra",
+    "capital": "Andorra la Vella",
+    "region": "Europe",
+    "population": 78014,
+    "demonym": "Andorran",
+    "nativeName": "Andorra"
+}, {
+    "name": "Angola",
+    "capital": "Luanda",
+    "region": "Africa",
+    "population": 25868000,
+    "demonym": "Angolan",
+    "nativeName": "Angola"
+}, {
+    "name": "Anguilla",
+    "capital": "The Valley",
+    "region": "Americas",
+    "population": 13452,
+    "demonym": "Anguillian",
+    "nativeName": "Anguilla"
+}, {
+    "name": "Antarctica",
+    "capital": "",
+    "region": "Polar",
+    "population": 1000,
+    "demonym": "",
+    "nativeName": "Antarctica"
+}, {
+    "name": "Antigua and Barbuda",
+    "capital": "Saint John's",
+    "region": "Americas",
+    "population": 86295,
+    "demonym": "Antiguan, Barbudan",
+    "nativeName": "Antigua and Barbuda"
+}, {
+    "name": "Argentina",
+    "capital": "Buenos Aires",
+    "region": "Americas",
+    "population": 43590400,
+    "demonym": "Argentinean",
+    "nativeName": "Argentina"
+}, {
+    "name": "Armenia",
+    "capital": "Yerevan",
+    "region": "Asia",
+    "population": 2994400,
+    "demonym": "Armenian",
+    "nativeName": "Հայաստան"
+}, {
+    "name": "Aruba",
+    "capital": "Oranjestad",
+    "region": "Americas",
+    "population": 107394,
+    "demonym": "Aruban",
+    "nativeName": "Aruba"
+}, {
+    "name": "Australia",
+    "capital": "Canberra",
+    "region": "Oceania",
+    "population": 24117360,
+    "demonym": "Australian",
+    "nativeName": "Australia"
+}, {
+    "name": "Austria",
+    "capital": "Vienna",
+    "region": "Europe",
+    "population": 8725931,
+    "demonym": "Austrian",
+    "nativeName": "Österreich"
+}, {
+    "name": "Azerbaijan",
+    "capital": "Baku",
+    "region": "Asia",
+    "population": 9730500,
+    "demonym": "Azerbaijani",
+    "nativeName": "Azərbaycan"
+}, {
+    "name": "Bahamas",
+    "capital": "Nassau",
+    "region": "Americas",
+    "population": 378040,
+    "demonym": "Bahamian",
+    "nativeName": "Bahamas"
+}, {
+    "name": "Bahrain",
+    "capital": "Manama",
+    "region": "Asia",
+    "population": 1404900,
+    "demonym": "Bahraini",
+    "nativeName": "‏البحرين"
+}, {
+    "name": "Bangladesh",
+    "capital": "Dhaka",
+    "region": "Asia",
+    "population": 161006790,
+    "demonym": "Bangladeshi",
+    "nativeName": "Bangladesh"
+}, {
+    "name": "Barbados",
+    "capital": "Bridgetown",
+    "region": "Americas",
+    "population": 285000,
+    "demonym": "Barbadian",
+    "nativeName": "Barbados"
+}, {
+    "name": "Belarus",
+    "capital": "Minsk",
+    "region": "Europe",
+    "population": 9498700,
+    "demonym": "Belarusian",
+    "nativeName": "Белару́сь"
+}, {
+    "name": "Belgium",
+    "capital": "Brussels",
+    "region": "Europe",
+    "population": 11319511,
+    "demonym": "Belgian",
+    "nativeName": "België"
+}, {
+    "name": "Belize",
+    "capital": "Belmopan",
+    "region": "Americas",
+    "population": 370300,
+    "demonym": "Belizean",
+    "nativeName": "Belize"
+}, {
+    "name": "Benin",
+    "capital": "Porto-Novo",
+    "region": "Africa",
+    "population": 10653654,
+    "demonym": "Beninese",
+    "nativeName": "Bénin"
+}, {
+    "name": "Bermuda",
+    "capital": "Hamilton",
+    "region": "Americas",
+    "population": 61954,
+    "demonym": "Bermudian",
+    "nativeName": "Bermuda"
+}, {
+    "name": "Bhutan",
+    "capital": "Thimphu",
+    "region": "Asia",
+    "population": 775620,
+    "demonym": "Bhutanese",
+    "nativeName": "ʼbrug-yul"
+}, {
+    "name": "Bolivia (Plurinational State of)",
+    "capital": "Sucre",
+    "region": "Americas",
+    "population": 10985059,
+    "demonym": "Bolivian",
+    "nativeName": "Bolivia"
+}, {
+    "name": "Bonaire, Sint Eustatius and Saba",
+    "capital": "Kralendijk",
+    "region": "Americas",
+    "population": 17408,
+    "demonym": "Dutch",
+    "nativeName": "Bonaire"
+}, {
+    "name": "Bosnia and Herzegovina",
+    "capital": "Sarajevo",
+    "region": "Europe",
+    "population": 3531159,
+    "demonym": "Bosnian, Herzegovinian",
+    "nativeName": "Bosna i Hercegovina"
+}, {
+    "name": "Botswana",
+    "capital": "Gaborone",
+    "region": "Africa",
+    "population": 2141206,
+    "demonym": "Motswana",
+    "nativeName": "Botswana"
+}, {
+    "name": "Bouvet Island",
+    "capital": "",
+    "region": "",
+    "population": 0,
+    "demonym": "",
+    "nativeName": "Bouvetøya"
+}, {
+    "name": "Brazil",
+    "capital": "Brasília",
+    "region": "Americas",
+    "population": 206135893,
+    "demonym": "Brazilian",
+    "nativeName": "Brasil"
+}, {
+    "name": "British Indian Ocean Territory",
+    "capital": "Diego Garcia",
+    "region": "Africa",
+    "population": 3000,
+    "demonym": "Indian",
+    "nativeName": "British Indian Ocean Territory"
+}, {
+    "name": "United States Minor Outlying Islands",
+    "capital": "",
+    "region": "Americas",
+    "population": 300,
+    "demonym": "American",
+    "nativeName": "United States Minor Outlying Islands"
+}, {
+    "name": "Virgin Islands (British)",
+    "capital": "Road Town",
+    "region": "Americas",
+    "population": 28514,
+    "demonym": "Virgin Islander",
+    "nativeName": "British Virgin Islands"
+}, {
+    "name": "Virgin Islands (U.S.)",
+    "capital": "Charlotte Amalie",
+    "region": "Americas",
+    "population": 114743,
+    "demonym": "Virgin Islander",
+    "nativeName": "Virgin Islands of the United States"
+}, {
+    "name": "Brunei Darussalam",
+    "capital": "Bandar Seri Begawan",
+    "region": "Asia",
+    "population": 411900,
+    "demonym": "Bruneian",
+    "nativeName": "Negara Brunei Darussalam"
+}, {
+    "name": "Bulgaria",
+    "capital": "Sofia",
+    "region": "Europe",
+    "population": 7153784,
+    "demonym": "Bulgarian",
+    "nativeName": "България"
+}, {
+    "name": "Burkina Faso",
+    "capital": "Ouagadougou",
+    "region": "Africa",
+    "population": 19034397,
+    "demonym": "Burkinabe",
+    "nativeName": "Burkina Faso"
+}, {
+    "name": "Burundi",
+    "capital": "Bujumbura",
+    "region": "Africa",
+    "population": 10114505,
+    "demonym": "Burundian",
+    "nativeName": "Burundi"
+}, {
+    "name": "Cambodia",
+    "capital": "Phnom Penh",
+    "region": "Asia",
+    "population": 15626444,
+    "demonym": "Cambodian",
+    "nativeName": "Kâmpŭchéa"
+}, {
+    "name": "Cameroon",
+    "capital": "Yaoundé",
+    "region": "Africa",
+    "population": 22709892,
+    "demonym": "Cameroonian",
+    "nativeName": "Cameroon"
+}, {
+    "name": "Canada",
+    "capital": "Ottawa",
+    "region": "Americas",
+    "population": 36155487,
+    "demonym": "Canadian",
+    "nativeName": "Canada"
+}, {
+    "name": "Cabo Verde",
+    "capital": "Praia",
+    "region": "Africa",
+    "population": 531239,
+    "demonym": "Cape Verdian",
+    "nativeName": "Cabo Verde"
+}, {
+    "name": "Cayman Islands",
+    "capital": "George Town",
+    "region": "Americas",
+    "population": 58238,
+    "demonym": "Caymanian",
+    "nativeName": "Cayman Islands"
+}, {
+    "name": "Central African Republic",
+    "capital": "Bangui",
+    "region": "Africa",
+    "population": 4998000,
+    "demonym": "Central African",
+    "nativeName": "Ködörösêse tî Bêafrîka"
+}, {
+    "name": "Chad",
+    "capital": "N'Djamena",
+    "region": "Africa",
+    "population": 14497000,
+    "demonym": "Chadian",
+    "nativeName": "Tchad"
+}, {
+    "name": "Chile",
+    "capital": "Santiago",
+    "region": "Americas",
+    "population": 18191900,
+    "demonym": "Chilean",
+    "nativeName": "Chile"
+}, {
+    "name": "China",
+    "capital": "Beijing",
+    "region": "Asia",
+    "population": 1377422166,
+    "demonym": "Chinese",
+    "nativeName": "中国"
+}, {
+    "name": "Christmas Island",
+    "capital": "Flying Fish Cove",
+    "region": "Oceania",
+    "population": 2072,
+    "demonym": "Christmas Island",
+    "nativeName": "Christmas Island"
+}, {
+    "name": "Cocos (Keeling) Islands",
+    "capital": "West Island",
+    "region": "Oceania",
+    "population": 550,
+    "demonym": "Cocos Islander",
+    "nativeName": "Cocos (Keeling) Islands"
+}, {
+    "name": "Colombia",
+    "capital": "Bogotá",
+    "region": "Americas",
+    "population": 48759958,
+    "demonym": "Colombian",
+    "nativeName": "Colombia"
+}, {
+    "name": "Comoros",
+    "capital": "Moroni",
+    "region": "Africa",
+    "population": 806153,
+    "demonym": "Comoran",
+    "nativeName": "Komori"
+}, {
+    "name": "Congo",
+    "capital": "Brazzaville",
+    "region": "Africa",
+    "population": 4741000,
+    "demonym": "Congolese",
+    "nativeName": "République du Congo"
+}, {
+    "name": "Congo (Democratic Republic of the)",
+    "capital": "Kinshasa",
+    "region": "Africa",
+    "population": 85026000,
+    "demonym": "Congolese",
+    "nativeName": "République démocratique du Congo"
+}, {
+    "name": "Cook Islands",
+    "capital": "Avarua",
+    "region": "Oceania",
+    "population": 18100,
+    "demonym": "Cook Islander",
+    "nativeName": "Cook Islands"
+}, {
+    "name": "Costa Rica",
+    "capital": "San José",
+    "region": "Americas",
+    "population": 4890379,
+    "demonym": "Costa Rican",
+    "nativeName": "Costa Rica"
+}, {
+    "name": "Croatia",
+    "capital": "Zagreb",
+    "region": "Europe",
+    "population": 4190669,
+    "demonym": "Croatian",
+    "nativeName": "Hrvatska"
+}, {
+    "name": "Cuba",
+    "capital": "Havana",
+    "region": "Americas",
+    "population": 11239004,
+    "demonym": "Cuban",
+    "nativeName": "Cuba"
+}, {
+    "name": "Curaçao",
+    "capital": "Willemstad",
+    "region": "Americas",
+    "population": 154843,
+    "demonym": "Dutch",
+    "nativeName": "Curaçao"
+}, {
+    "name": "Cyprus",
+    "capital": "Nicosia",
+    "region": "Europe",
+    "population": 847000,
+    "demonym": "Cypriot",
+    "nativeName": "Κύπρος"
+}, {
+    "name": "Czech Republic",
+    "capital": "Prague",
+    "region": "Europe",
+    "population": 10558524,
+    "demonym": "Czech",
+    "nativeName": "Česká republika"
+}, {
+    "name": "Denmark",
+    "capital": "Copenhagen",
+    "region": "Europe",
+    "population": 5717014,
+    "demonym": "Danish",
+    "nativeName": "Danmark"
+}, {
+    "name": "Djibouti",
+    "capital": "Djibouti",
+    "region": "Africa",
+    "population": 900000,
+    "demonym": "Djibouti",
+    "nativeName": "Djibouti"
+}, {
+    "name": "Dominica",
+    "capital": "Roseau",
+    "region": "Americas",
+    "population": 71293,
+    "demonym": "Dominican",
+    "nativeName": "Dominica"
+}, {
+    "name": "Dominican Republic",
+    "capital": "Santo Domingo",
+    "region": "Americas",
+    "population": 10075045,
+    "demonym": "Dominican",
+    "nativeName": "República Dominicana"
+}, {
+    "name": "Ecuador",
+    "capital": "Quito",
+    "region": "Americas",
+    "population": 16545799,
+    "demonym": "Ecuadorean",
+    "nativeName": "Ecuador"
+}, {
+    "name": "Egypt",
+    "capital": "Cairo",
+    "region": "Africa",
+    "population": 91290000,
+    "demonym": "Egyptian",
+    "nativeName": "مصر‎"
+}, {
+    "name": "El Salvador",
+    "capital": "San Salvador",
+    "region": "Americas",
+    "population": 6520675,
+    "demonym": "Salvadoran",
+    "nativeName": "El Salvador"
+}, {
+    "name": "Equatorial Guinea",
+    "capital": "Malabo",
+    "region": "Africa",
+    "population": 1222442,
+    "demonym": "Equatorial Guinean",
+    "nativeName": "Guinea Ecuatorial"
+}, {
+    "name": "Eritrea",
+    "capital": "Asmara",
+    "region": "Africa",
+    "population": 5352000,
+    "demonym": "Eritrean",
+    "nativeName": "ኤርትራ"
+}, {
+    "name": "Estonia",
+    "capital": "Tallinn",
+    "region": "Europe",
+    "population": 1315944,
+    "demonym": "Estonian",
+    "nativeName": "Eesti"
+}, {
+    "name": "Ethiopia",
+    "capital": "Addis Ababa",
+    "region": "Africa",
+    "population": 92206005,
+    "demonym": "Ethiopian",
+    "nativeName": "ኢትዮጵያ"
+}, {
+    "name": "Falkland Islands (Malvinas)",
+    "capital": "Stanley",
+    "region": "Americas",
+    "population": 2563,
+    "demonym": "Falkland Islander",
+    "nativeName": "Falkland Islands"
+}, {
+    "name": "Faroe Islands",
+    "capital": "Tórshavn",
+    "region": "Europe",
+    "population": 49376,
+    "demonym": "Faroese",
+    "nativeName": "Føroyar"
+}, {
+    "name": "Fiji",
+    "capital": "Suva",
+    "region": "Oceania",
+    "population": 867000,
+    "demonym": "Fijian",
+    "nativeName": "Fiji"
+}, {
+    "name": "Finland",
+    "capital": "Helsinki",
+    "region": "Europe",
+    "population": 5491817,
+    "demonym": "Finnish",
+    "nativeName": "Suomi"
+}, {
+    "name": "France",
+    "capital": "Paris",
+    "region": "Europe",
+    "population": 66710000,
+    "demonym": "French",
+    "nativeName": "France"
+}, {
+    "name": "French Guiana",
+    "capital": "Cayenne",
+    "region": "Americas",
+    "population": 254541,
+    "demonym": "",
+    "nativeName": "Guyane française"
+}, {
+    "name": "French Polynesia",
+    "capital": "Papeetē",
+    "region": "Oceania",
+    "population": 271800,
+    "demonym": "French Polynesian",
+    "nativeName": "Polynésie française"
+}, {
+    "name": "French Southern Territories",
+    "capital": "Port-aux-Français",
+    "region": "Africa",
+    "population": 140,
+    "demonym": "French",
+    "nativeName": "Territoire des Terres australes et antarctiques françaises"
+}, {
+    "name": "Gabon",
+    "capital": "Libreville",
+    "region": "Africa",
+    "population": 1802278,
+    "demonym": "Gabonese",
+    "nativeName": "Gabon"
+}, {
+    "name": "Gambia",
+    "capital": "Banjul",
+    "region": "Africa",
+    "population": 1882450,
+    "demonym": "Gambian",
+    "nativeName": "Gambia"
+}, {
+    "name": "Georgia",
+    "capital": "Tbilisi",
+    "region": "Asia",
+    "population": 3720400,
+    "demonym": "Georgian",
+    "nativeName": "საქართველო"
+}, {
+    "name": "Germany",
+    "capital": "Berlin",
+    "region": "Europe",
+    "population": 81770900,
+    "demonym": "German",
+    "nativeName": "Deutschland"
+}, {
+    "name": "Ghana",
+    "capital": "Accra",
+    "region": "Africa",
+    "population": 27670174,
+    "demonym": "Ghanaian",
+    "nativeName": "Ghana"
+}, {
+    "name": "Gibraltar",
+    "capital": "Gibraltar",
+    "region": "Europe",
+    "population": 33140,
+    "demonym": "Gibraltar",
+    "nativeName": "Gibraltar"
+}, {
+    "name": "Greece",
+    "capital": "Athens",
+    "region": "Europe",
+    "population": 10858018,
+    "demonym": "Greek",
+    "nativeName": "Ελλάδα"
+}, {
+    "name": "Greenland",
+    "capital": "Nuuk",
+    "region": "Americas",
+    "population": 55847,
+    "demonym": "Greenlandic",
+    "nativeName": "Kalaallit Nunaat"
+}, {
+    "name": "Grenada",
+    "capital": "St. George's",
+    "region": "Americas",
+    "population": 103328,
+    "demonym": "Grenadian",
+    "nativeName": "Grenada"
+}, {
+    "name": "Guadeloupe",
+    "capital": "Basse-Terre",
+    "region": "Americas",
+    "population": 400132,
+    "demonym": "Guadeloupian",
+    "nativeName": "Guadeloupe"
+}, {
+    "name": "Guam",
+    "capital": "Hagåtña",
+    "region": "Oceania",
+    "population": 184200,
+    "demonym": "Guamanian",
+    "nativeName": "Guam"
+}, {
+    "name": "Guatemala",
+    "capital": "Guatemala City",
+    "region": "Americas",
+    "population": 16176133,
+    "demonym": "Guatemalan",
+    "nativeName": "Guatemala"
+}, {
+    "name": "Guernsey",
+    "capital": "St. Peter Port",
+    "region": "Europe",
+    "population": 62999,
+    "demonym": "Channel Islander",
+    "nativeName": "Guernsey"
+}, {
+    "name": "Guinea",
+    "capital": "Conakry",
+    "region": "Africa",
+    "population": 12947000,
+    "demonym": "Guinean",
+    "nativeName": "Guinée"
+}, {
+    "name": "Guinea-Bissau",
+    "capital": "Bissau",
+    "region": "Africa",
+    "population": 1547777,
+    "demonym": "Guinea-Bissauan",
+    "nativeName": "Guiné-Bissau"
+}, {
+    "name": "Guyana",
+    "capital": "Georgetown",
+    "region": "Americas",
+    "population": 746900,
+    "demonym": "Guyanese",
+    "nativeName": "Guyana"
+}, {
+    "name": "Haiti",
+    "capital": "Port-au-Prince",
+    "region": "Americas",
+    "population": 11078033,
+    "demonym": "Haitian",
+    "nativeName": "Haïti"
+}, {
+    "name": "Heard Island and McDonald Islands",
+    "capital": "",
+    "region": "",
+    "population": 0,
+    "demonym": "Heard and McDonald Islander",
+    "nativeName": "Heard Island and McDonald Islands"
+}, {
+    "name": "Holy See",
+    "capital": "Rome",
+    "region": "Europe",
+    "population": 451,
+    "demonym": "",
+    "nativeName": "Sancta Sedes"
+}, {
+    "name": "Honduras",
+    "capital": "Tegucigalpa",
+    "region": "Americas",
+    "population": 8576532,
+    "demonym": "Honduran",
+    "nativeName": "Honduras"
+}, {
+    "name": "Hong Kong",
+    "capital": "City of Victoria",
+    "region": "Asia",
+    "population": 7324300,
+    "demonym": "Chinese",
+    "nativeName": "香港"
+}, {
+    "name": "Hungary",
+    "capital": "Budapest",
+    "region": "Europe",
+    "population": 9823000,
+    "demonym": "Hungarian",
+    "nativeName": "Magyarország"
+}, {
+    "name": "Iceland",
+    "capital": "Reykjavík",
+    "region": "Europe",
+    "population": 334300,
+    "demonym": "Icelander",
+    "nativeName": "Ísland"
+}, {
+    "name": "India",
+    "capital": "New Delhi",
+    "region": "Asia",
+    "population": 1295210000,
+    "demonym": "Indian",
+    "nativeName": "भारत"
+}, {
+    "name": "Indonesia",
+    "capital": "Jakarta",
+    "region": "Asia",
+    "population": 258705000,
+    "demonym": "Indonesian",
+    "nativeName": "Indonesia"
+}, {
+    "name": "Côte d'Ivoire",
+    "capital": "Yamoussoukro",
+    "region": "Africa",
+    "population": 22671331,
+    "demonym": "Ivorian",
+    "nativeName": "Côte d'Ivoire"
+}, {
+    "name": "Iran (Islamic Republic of)",
+    "capital": "Tehran",
+    "region": "Asia",
+    "population": 79369900,
+    "demonym": "Iranian",
+    "nativeName": "ایران"
+}, {
+    "name": "Iraq",
+    "capital": "Baghdad",
+    "region": "Asia",
+    "population": 37883543,
+    "demonym": "Iraqi",
+    "nativeName": "العراق"
+}, {
+    "name": "Ireland",
+    "capital": "Dublin",
+    "region": "Europe",
+    "population": 6378000,
+    "demonym": "Irish",
+    "nativeName": "Éire"
+}, {
+    "name": "Isle of Man",
+    "capital": "Douglas",
+    "region": "Europe",
+    "population": 84497,
+    "demonym": "Manx",
+    "nativeName": "Isle of Man"
+}, {
+    "name": "Israel",
+    "capital": "Jerusalem",
+    "region": "Asia",
+    "population": 8527400,
+    "demonym": "Israeli",
+    "nativeName": "יִשְׂרָאֵל"
+}, {
+    "name": "Italy",
+    "capital": "Rome",
+    "region": "Europe",
+    "population": 60665551,
+    "demonym": "Italian",
+    "nativeName": "Italia"
+}, {
+    "name": "Jamaica",
+    "capital": "Kingston",
+    "region": "Americas",
+    "population": 2723246,
+    "demonym": "Jamaican",
+    "nativeName": "Jamaica"
+}, {
+    "name": "Japan",
+    "capital": "Tokyo",
+    "region": "Asia",
+    "population": 126960000,
+    "demonym": "Japanese",
+    "nativeName": "日本"
+}, {
+    "name": "Jersey",
+    "capital": "Saint Helier",
+    "region": "Europe",
+    "population": 100800,
+    "demonym": "Channel Islander",
+    "nativeName": "Jersey"
+}, {
+    "name": "Jordan",
+    "capital": "Amman",
+    "region": "Asia",
+    "population": 9531712,
+    "demonym": "Jordanian",
+    "nativeName": "الأردن"
+}, {
+    "name": "Kazakhstan",
+    "capital": "Astana",
+    "region": "Asia",
+    "population": 17753200,
+    "demonym": "Kazakhstani",
+    "nativeName": "Қазақстан"
+}, {
+    "name": "Kenya",
+    "capital": "Nairobi",
+    "region": "Africa",
+    "population": 47251000,
+    "demonym": "Kenyan",
+    "nativeName": "Kenya"
+}, {
+    "name": "Kiribati",
+    "capital": "South Tarawa",
+    "region": "Oceania",
+    "population": 113400,
+    "demonym": "I-Kiribati",
+    "nativeName": "Kiribati"
+}, {
+    "name": "Kuwait",
+    "capital": "Kuwait City",
+    "region": "Asia",
+    "population": 4183658,
+    "demonym": "Kuwaiti",
+    "nativeName": "الكويت"
+}, {
+    "name": "Kyrgyzstan",
+    "capital": "Bishkek",
+    "region": "Asia",
+    "population": 6047800,
+    "demonym": "Kirghiz",
+    "nativeName": "Кыргызстан"
+}, {
+    "name": "Lao People's Democratic Republic",
+    "capital": "Vientiane",
+    "region": "Asia",
+    "population": 6492400,
+    "demonym": "Laotian",
+    "nativeName": "ສປປລາວ"
+}, {
+    "name": "Latvia",
+    "capital": "Riga",
+    "region": "Europe",
+    "population": 1961600,
+    "demonym": "Latvian",
+    "nativeName": "Latvija"
+}, {
+    "name": "Lebanon",
+    "capital": "Beirut",
+    "region": "Asia",
+    "population": 5988000,
+    "demonym": "Lebanese",
+    "nativeName": "لبنان"
+}, {
+    "name": "Lesotho",
+    "capital": "Maseru",
+    "region": "Africa",
+    "population": 1894194,
+    "demonym": "Mosotho",
+    "nativeName": "Lesotho"
+}, {
+    "name": "Liberia",
+    "capital": "Monrovia",
+    "region": "Africa",
+    "population": 4615000,
+    "demonym": "Liberian",
+    "nativeName": "Liberia"
+}, {
+    "name": "Libya",
+    "capital": "Tripoli",
+    "region": "Africa",
+    "population": 6385000,
+    "demonym": "Libyan",
+    "nativeName": "‏ليبيا"
+}, {
+    "name": "Liechtenstein",
+    "capital": "Vaduz",
+    "region": "Europe",
+    "population": 37623,
+    "demonym": "Liechtensteiner",
+    "nativeName": "Liechtenstein"
+}, {
+    "name": "Lithuania",
+    "capital": "Vilnius",
+    "region": "Europe",
+    "population": 2872294,
+    "demonym": "Lithuanian",
+    "nativeName": "Lietuva"
+}, {
+    "name": "Luxembourg",
+    "capital": "Luxembourg",
+    "region": "Europe",
+    "population": 576200,
+    "demonym": "Luxembourger",
+    "nativeName": "Luxembourg"
+}, {
+    "name": "Macao",
+    "capital": "",
+    "region": "Asia",
+    "population": 649100,
+    "demonym": "Chinese",
+    "nativeName": "澳門"
+}, {
+    "name": "Macedonia (the former Yugoslav Republic of)",
+    "capital": "Skopje",
+    "region": "Europe",
+    "population": 2058539,
+    "demonym": "Macedonian",
+    "nativeName": "Македонија"
+}, {
+    "name": "Madagascar",
+    "capital": "Antananarivo",
+    "region": "Africa",
+    "population": 22434363,
+    "demonym": "Malagasy",
+    "nativeName": "Madagasikara"
+}, {
+    "name": "Malawi",
+    "capital": "Lilongwe",
+    "region": "Africa",
+    "population": 16832910,
+    "demonym": "Malawian",
+    "nativeName": "Malawi"
+}, {
+    "name": "Malaysia",
+    "capital": "Kuala Lumpur",
+    "region": "Asia",
+    "population": 31405416,
+    "demonym": "Malaysian",
+    "nativeName": "Malaysia"
+}, {
+    "name": "Maldives",
+    "capital": "Malé",
+    "region": "Asia",
+    "population": 344023,
+    "demonym": "Maldivan",
+    "nativeName": "Maldives"
+}, {
+    "name": "Mali",
+    "capital": "Bamako",
+    "region": "Africa",
+    "population": 18135000,
+    "demonym": "Malian",
+    "nativeName": "Mali"
+}, {
+    "name": "Malta",
+    "capital": "Valletta",
+    "region": "Europe",
+    "population": 425384,
+    "demonym": "Maltese",
+    "nativeName": "Malta"
+}, {
+    "name": "Marshall Islands",
+    "capital": "Majuro",
+    "region": "Oceania",
+    "population": 54880,
+    "demonym": "Marshallese",
+    "nativeName": "M̧ajeļ"
+}, {
+    "name": "Martinique",
+    "capital": "Fort-de-France",
+    "region": "Americas",
+    "population": 378243,
+    "demonym": "French",
+    "nativeName": "Martinique"
+}, {
+    "name": "Mauritania",
+    "capital": "Nouakchott",
+    "region": "Africa",
+    "population": 3718678,
+    "demonym": "Mauritanian",
+    "nativeName": "موريتانيا"
+}, {
+    "name": "Mauritius",
+    "capital": "Port Louis",
+    "region": "Africa",
+    "population": 1262879,
+    "demonym": "Mauritian",
+    "nativeName": "Maurice"
+}, {
+    "name": "Mayotte",
+    "capital": "Mamoudzou",
+    "region": "Africa",
+    "population": 226915,
+    "demonym": "French",
+    "nativeName": "Mayotte"
+}, {
+    "name": "Mexico",
+    "capital": "Mexico City",
+    "region": "Americas",
+    "population": 122273473,
+    "demonym": "Mexican",
+    "nativeName": "México"
+}, {
+    "name": "Micronesia (Federated States of)",
+    "capital": "Palikir",
+    "region": "Oceania",
+    "population": 102800,
+    "demonym": "Micronesian",
+    "nativeName": "Micronesia"
+}, {
+    "name": "Moldova (Republic of)",
+    "capital": "Chișinău",
+    "region": "Europe",
+    "population": 3553100,
+    "demonym": "Moldovan",
+    "nativeName": "Moldova"
+}, {
+    "name": "Monaco",
+    "capital": "Monaco",
+    "region": "Europe",
+    "population": 38400,
+    "demonym": "Monegasque",
+    "nativeName": "Monaco"
+}, {
+    "name": "Mongolia",
+    "capital": "Ulan Bator",
+    "region": "Asia",
+    "population": 3093100,
+    "demonym": "Mongolian",
+    "nativeName": "Монгол улс"
+}, {
+    "name": "Montenegro",
+    "capital": "Podgorica",
+    "region": "Europe",
+    "population": 621810,
+    "demonym": "Montenegrin",
+    "nativeName": "Црна Гора"
+}, {
+    "name": "Montserrat",
+    "capital": "Plymouth",
+    "region": "Americas",
+    "population": 4922,
+    "demonym": "Montserratian",
+    "nativeName": "Montserrat"
+}, {
+    "name": "Morocco",
+    "capital": "Rabat",
+    "region": "Africa",
+    "population": 33337529,
+    "demonym": "Moroccan",
+    "nativeName": "المغرب"
+}, {
+    "name": "Mozambique",
+    "capital": "Maputo",
+    "region": "Africa",
+    "population": 26423700,
+    "demonym": "Mozambican",
+    "nativeName": "Moçambique"
+}, {
+    "name": "Myanmar",
+    "capital": "Naypyidaw",
+    "region": "Asia",
+    "population": 51419420,
+    "demonym": "Burmese",
+    "nativeName": "Myanma"
+}, {
+    "name": "Namibia",
+    "capital": "Windhoek",
+    "region": "Africa",
+    "population": 2324388,
+    "demonym": "Namibian",
+    "nativeName": "Namibia"
+}, {
+    "name": "Nauru",
+    "capital": "Yaren",
+    "region": "Oceania",
+    "population": 10084,
+    "demonym": "Nauruan",
+    "nativeName": "Nauru"
+}, {
+    "name": "Nepal",
+    "capital": "Kathmandu",
+    "region": "Asia",
+    "population": 28431500,
+    "demonym": "Nepalese",
+    "nativeName": "नेपाल"
+}, {
+    "name": "Netherlands",
+    "capital": "Amsterdam",
+    "region": "Europe",
+    "population": 17019800,
+    "demonym": "Dutch",
+    "nativeName": "Nederland"
+}, {
+    "name": "New Caledonia",
+    "capital": "Nouméa",
+    "region": "Oceania",
+    "population": 268767,
+    "demonym": "New Caledonian",
+    "nativeName": "Nouvelle-Calédonie"
+}, {
+    "name": "New Zealand",
+    "capital": "Wellington",
+    "region": "Oceania",
+    "population": 4697854,
+    "demonym": "New Zealander",
+    "nativeName": "New Zealand"
+}, {
+    "name": "Nicaragua",
+    "capital": "Managua",
+    "region": "Americas",
+    "population": 6262703,
+    "demonym": "Nicaraguan",
+    "nativeName": "Nicaragua"
+}, {
+    "name": "Niger",
+    "capital": "Niamey",
+    "region": "Africa",
+    "population": 20715000,
+    "demonym": "Nigerien",
+    "nativeName": "Niger"
+}, {
+    "name": "Nigeria",
+    "capital": "Abuja",
+    "region": "Africa",
+    "population": 186988000,
+    "demonym": "Nigerian",
+    "nativeName": "Nigeria"
+}, {
+    "name": "Niue",
+    "capital": "Alofi",
+    "region": "Oceania",
+    "population": 1470,
+    "demonym": "Niuean",
+    "nativeName": "Niuē"
+}, {
+    "name": "Norfolk Island",
+    "capital": "Kingston",
+    "region": "Oceania",
+    "population": 2302,
+    "demonym": "Norfolk Islander",
+    "nativeName": "Norfolk Island"
+}, {
+    "name": "Korea (Democratic People's Republic of)",
+    "capital": "Pyongyang",
+    "region": "Asia",
+    "population": 25281000,
+    "demonym": "North Korean",
+    "nativeName": "북한"
+}, {
+    "name": "Northern Mariana Islands",
+    "capital": "Saipan",
+    "region": "Oceania",
+    "population": 56940,
+    "demonym": "American",
+    "nativeName": "Northern Mariana Islands"
+}, {
+    "name": "Norway",
+    "capital": "Oslo",
+    "region": "Europe",
+    "population": 5223256,
+    "demonym": "Norwegian",
+    "nativeName": "Norge"
+}, {
+    "name": "Oman",
+    "capital": "Muscat",
+    "region": "Asia",
+    "population": 4420133,
+    "demonym": "Omani",
+    "nativeName": "عمان"
+}, {
+    "name": "Pakistan",
+    "capital": "Islamabad",
+    "region": "Asia",
+    "population": 194125062,
+    "demonym": "Pakistani",
+    "nativeName": "Pakistan"
+}, {
+    "name": "Palau",
+    "capital": "Ngerulmud",
+    "region": "Oceania",
+    "population": 17950,
+    "demonym": "Palauan",
+    "nativeName": "Palau"
+}, {
+    "name": "Palestine, State of",
+    "capital": "Ramallah",
+    "region": "Asia",
+    "population": 4682467,
+    "demonym": "Palestinian",
+    "nativeName": "فلسطين"
+}, {
+    "name": "Panama",
+    "capital": "Panama City",
+    "region": "Americas",
+    "population": 3814672,
+    "demonym": "Panamanian",
+    "nativeName": "Panamá"
+}, {
+    "name": "Papua New Guinea",
+    "capital": "Port Moresby",
+    "region": "Oceania",
+    "population": 8083700,
+    "demonym": "Papua New Guinean",
+    "nativeName": "Papua Niugini"
+}, {
+    "name": "Paraguay",
+    "capital": "Asunción",
+    "region": "Americas",
+    "population": 6854536,
+    "demonym": "Paraguayan",
+    "nativeName": "Paraguay"
+}, {
+    "name": "Peru",
+    "capital": "Lima",
+    "region": "Americas",
+    "population": 31488700,
+    "demonym": "Peruvian",
+    "nativeName": "Perú"
+}, {
+    "name": "Philippines",
+    "capital": "Manila",
+    "region": "Asia",
+    "population": 103279800,
+    "demonym": "Filipino",
+    "nativeName": "Pilipinas"
+}, {
+    "name": "Pitcairn",
+    "capital": "Adamstown",
+    "region": "Oceania",
+    "population": 56,
+    "demonym": "Pitcairn Islander",
+    "nativeName": "Pitcairn Islands"
+}, {
+    "name": "Poland",
+    "capital": "Warsaw",
+    "region": "Europe",
+    "population": 38437239,
+    "demonym": "Polish",
+    "nativeName": "Polska"
+}, {
+    "name": "Portugal",
+    "capital": "Lisbon",
+    "region": "Europe",
+    "population": 10374822,
+    "demonym": "Portuguese",
+    "nativeName": "Portugal"
+}, {
+    "name": "Puerto Rico",
+    "capital": "San Juan",
+    "region": "Americas",
+    "population": 3474182,
+    "demonym": "Puerto Rican",
+    "nativeName": "Puerto Rico"
+}, {
+    "name": "Qatar",
+    "capital": "Doha",
+    "region": "Asia",
+    "population": 2587564,
+    "demonym": "Qatari",
+    "nativeName": "قطر"
+}, {
+    "name": "Republic of Kosovo",
+    "capital": "Pristina",
+    "region": "Europe",
+    "population": 1733842,
+    "demonym": "Kosovar",
+    "nativeName": "Republika e Kosovës"
+}, {
+    "name": "Réunion",
+    "capital": "Saint-Denis",
+    "region": "Africa",
+    "population": 840974,
+    "demonym": "French",
+    "nativeName": "La Réunion"
+}, {
+    "name": "Romania",
+    "capital": "Bucharest",
+    "region": "Europe",
+    "population": 19861408,
+    "demonym": "Romanian",
+    "nativeName": "România"
+}, {
+    "name": "Russian Federation",
+    "capital": "Moscow",
+    "region": "Europe",
+    "population": 146599183,
+    "demonym": "Russian",
+    "nativeName": "Россия"
+}, {
+    "name": "Rwanda",
+    "capital": "Kigali",
+    "region": "Africa",
+    "population": 11553188,
+    "demonym": "Rwandan",
+    "nativeName": "Rwanda"
+}, {
+    "name": "Saint Barthélemy",
+    "capital": "Gustavia",
+    "region": "Americas",
+    "population": 9417,
+    "demonym": "Saint Barthélemy Islander",
+    "nativeName": "Saint-Barthélemy"
+}, {
+    "name": "Saint Helena, Ascension and Tristan da Cunha",
+    "capital": "Jamestown",
+    "region": "Africa",
+    "population": 4255,
+    "demonym": "Saint Helenian",
+    "nativeName": "Saint Helena"
+}, {
+    "name": "Saint Kitts and Nevis",
+    "capital": "Basseterre",
+    "region": "Americas",
+    "population": 46204,
+    "demonym": "Kittian and Nevisian",
+    "nativeName": "Saint Kitts and Nevis"
+}, {
+    "name": "Saint Lucia",
+    "capital": "Castries",
+    "region": "Americas",
+    "population": 186000,
+    "demonym": "Saint Lucian",
+    "nativeName": "Saint Lucia"
+}, {
+    "name": "Saint Martin (French part)",
+    "capital": "Marigot",
+    "region": "Americas",
+    "population": 36979,
+    "demonym": "Saint Martin Islander",
+    "nativeName": "Saint-Martin"
+}, {
+    "name": "Saint Pierre and Miquelon",
+    "capital": "Saint-Pierre",
+    "region": "Americas",
+    "population": 6069,
+    "demonym": "French",
+    "nativeName": "Saint-Pierre-et-Miquelon"
+}, {
+    "name": "Saint Vincent and the Grenadines",
+    "capital": "Kingstown",
+    "region": "Americas",
+    "population": 109991,
+    "demonym": "Saint Vincentian",
+    "nativeName": "Saint Vincent and the Grenadines"
+}, {
+    "name": "Samoa",
+    "capital": "Apia",
+    "region": "Oceania",
+    "population": 194899,
+    "demonym": "Samoan",
+    "nativeName": "Samoa"
+}, {
+    "name": "San Marino",
+    "capital": "City of San Marino",
+    "region": "Europe",
+    "population": 33005,
+    "demonym": "Sammarinese",
+    "nativeName": "San Marino"
+}, {
+    "name": "Sao Tome and Principe",
+    "capital": "São Tomé",
+    "region": "Africa",
+    "population": 187356,
+    "demonym": "Sao Tomean",
+    "nativeName": "São Tomé e Príncipe"
+}, {
+    "name": "Saudi Arabia",
+    "capital": "Riyadh",
+    "region": "Asia",
+    "population": 32248200,
+    "demonym": "Saudi Arabian",
+    "nativeName": "العربية السعودية"
+}, {
+    "name": "Senegal",
+    "capital": "Dakar",
+    "region": "Africa",
+    "population": 14799859,
+    "demonym": "Senegalese",
+    "nativeName": "Sénégal"
+}, {
+    "name": "Serbia",
+    "capital": "Belgrade",
+    "region": "Europe",
+    "population": 7076372,
+    "demonym": "Serbian",
+    "nativeName": "Србија"
+}, {
+    "name": "Seychelles",
+    "capital": "Victoria",
+    "region": "Africa",
+    "population": 91400,
+    "demonym": "Seychellois",
+    "nativeName": "Seychelles"
+}, {
+    "name": "Sierra Leone",
+    "capital": "Freetown",
+    "region": "Africa",
+    "population": 7075641,
+    "demonym": "Sierra Leonean",
+    "nativeName": "Sierra Leone"
+}, {
+    "name": "Singapore",
+    "capital": "Singapore",
+    "region": "Asia",
+    "population": 5535000,
+    "demonym": "Singaporean",
+    "nativeName": "Singapore"
+}, {
+    "name": "Sint Maarten (Dutch part)",
+    "capital": "Philipsburg",
+    "region": "Americas",
+    "population": 38247,
+    "demonym": "Dutch",
+    "nativeName": "Sint Maarten"
+}, {
+    "name": "Slovakia",
+    "capital": "Bratislava",
+    "region": "Europe",
+    "population": 5426252,
+    "demonym": "Slovak",
+    "nativeName": "Slovensko"
+}, {
+    "name": "Slovenia",
+    "capital": "Ljubljana",
+    "region": "Europe",
+    "population": 2064188,
+    "demonym": "Slovene",
+    "nativeName": "Slovenija"
+}, {
+    "name": "Solomon Islands",
+    "capital": "Honiara",
+    "region": "Oceania",
+    "population": 642000,
+    "demonym": "Solomon Islander",
+    "nativeName": "Solomon Islands"
+}, {
+    "name": "Somalia",
+    "capital": "Mogadishu",
+    "region": "Africa",
+    "population": 11079000,
+    "demonym": "Somali",
+    "nativeName": "Soomaaliya"
+}, {
+    "name": "South Africa",
+    "capital": "Pretoria",
+    "region": "Africa",
+    "population": 55653654,
+    "demonym": "South African",
+    "nativeName": "South Africa"
+}, {
+    "name": "South Georgia and the South Sandwich Islands",
+    "capital": "King Edward Point",
+    "region": "Americas",
+    "population": 30,
+    "demonym": "South Georgia and the South Sandwich Islander",
+    "nativeName": "South Georgia"
+}, {
+    "name": "Korea (Republic of)",
+    "capital": "Seoul",
+    "region": "Asia",
+    "population": 50801405,
+    "demonym": "South Korean",
+    "nativeName": "대한민국"
+}, {
+    "name": "South Sudan",
+    "capital": "Juba",
+    "region": "Africa",
+    "population": 12131000,
+    "demonym": "South Sudanese",
+    "nativeName": "South Sudan"
+}, {
+    "name": "Spain",
+    "capital": "Madrid",
+    "region": "Europe",
+    "population": 46438422,
+    "demonym": "Spanish",
+    "nativeName": "España"
+}, {
+    "name": "Sri Lanka",
+    "capital": "Colombo",
+    "region": "Asia",
+    "population": 20966000,
+    "demonym": "Sri Lankan",
+    "nativeName": "śrī laṃkāva"
+}, {
+    "name": "Sudan",
+    "capital": "Khartoum",
+    "region": "Africa",
+    "population": 39598700,
+    "demonym": "Sudanese",
+    "nativeName": "السودان"
+}, {
+    "name": "Suriname",
+    "capital": "Paramaribo",
+    "region": "Americas",
+    "population": 541638,
+    "demonym": "Surinamer",
+    "nativeName": "Suriname"
+}, {
+    "name": "Svalbard and Jan Mayen",
+    "capital": "Longyearbyen",
+    "region": "Europe",
+    "population": 2562,
+    "demonym": "Norwegian",
+    "nativeName": "Svalbard og Jan Mayen"
+}, {
+    "name": "Swaziland",
+    "capital": "Lobamba",
+    "region": "Africa",
+    "population": 1132657,
+    "demonym": "Swazi",
+    "nativeName": "Swaziland"
+}, {
+    "name": "Sweden",
+    "capital": "Stockholm",
+    "region": "Europe",
+    "population": 9894888,
+    "demonym": "Swedish",
+    "nativeName": "Sverige"
+}, {
+    "name": "Switzerland",
+    "capital": "Bern",
+    "region": "Europe",
+    "population": 8341600,
+    "demonym": "Swiss",
+    "nativeName": "Schweiz"
+}, {
+    "name": "Syrian Arab Republic",
+    "capital": "Damascus",
+    "region": "Asia",
+    "population": 18564000,
+    "demonym": "Syrian",
+    "nativeName": "سوريا"
+}, {
+    "name": "Taiwan",
+    "capital": "Taipei",
+    "region": "Asia",
+    "population": 23503349,
+    "demonym": "Taiwanese",
+    "nativeName": "臺灣"
+}, {
+    "name": "Tajikistan",
+    "capital": "Dushanbe",
+    "region": "Asia",
+    "population": 8593600,
+    "demonym": "Tadzhik",
+    "nativeName": "Тоҷикистон"
+}, {
+    "name": "Tanzania, United Republic of",
+    "capital": "Dodoma",
+    "region": "Africa",
+    "population": 55155000,
+    "demonym": "Tanzanian",
+    "nativeName": "Tanzania"
+}, {
+    "name": "Thailand",
+    "capital": "Bangkok",
+    "region": "Asia",
+    "population": 65327652,
+    "demonym": "Thai",
+    "nativeName": "ประเทศไทย"
+}, {
+    "name": "Timor-Leste",
+    "capital": "Dili",
+    "region": "Asia",
+    "population": 1167242,
+    "demonym": "East Timorese",
+    "nativeName": "Timor-Leste"
+}, {
+    "name": "Togo",
+    "capital": "Lomé",
+    "region": "Africa",
+    "population": 7143000,
+    "demonym": "Togolese",
+    "nativeName": "Togo"
+}, {
+    "name": "Tokelau",
+    "capital": "Fakaofo",
+    "region": "Oceania",
+    "population": 1411,
+    "demonym": "Tokelauan",
+    "nativeName": "Tokelau"
+}, {
+    "name": "Tonga",
+    "capital": "Nuku'alofa",
+    "region": "Oceania",
+    "population": 103252,
+    "demonym": "Tongan",
+    "nativeName": "Tonga"
+}, {
+    "name": "Trinidad and Tobago",
+    "capital": "Port of Spain",
+    "region": "Americas",
+    "population": 1349667,
+    "demonym": "Trinidadian",
+    "nativeName": "Trinidad and Tobago"
+}, {
+    "name": "Tunisia",
+    "capital": "Tunis",
+    "region": "Africa",
+    "population": 11154400,
+    "demonym": "Tunisian",
+    "nativeName": "تونس"
+}, {
+    "name": "Turkey",
+    "capital": "Ankara",
+    "region": "Asia",
+    "population": 78741053,
+    "demonym": "Turkish",
+    "nativeName": "Türkiye"
+}, {
+    "name": "Turkmenistan",
+    "capital": "Ashgabat",
+    "region": "Asia",
+    "population": 4751120,
+    "demonym": "Turkmen",
+    "nativeName": "Türkmenistan"
+}, {
+    "name": "Turks and Caicos Islands",
+    "capital": "Cockburn Town",
+    "region": "Americas",
+    "population": 31458,
+    "demonym": "Turks and Caicos Islander",
+    "nativeName": "Turks and Caicos Islands"
+}, {
+    "name": "Tuvalu",
+    "capital": "Funafuti",
+    "region": "Oceania",
+    "population": 10640,
+    "demonym": "Tuvaluan",
+    "nativeName": "Tuvalu"
+}, {
+    "name": "Uganda",
+    "capital": "Kampala",
+    "region": "Africa",
+    "population": 33860700,
+    "demonym": "Ugandan",
+    "nativeName": "Uganda"
+}, {
+    "name": "Ukraine",
+    "capital": "Kiev",
+    "region": "Europe",
+    "population": 42692393,
+    "demonym": "Ukrainian",
+    "nativeName": "Україна"
+}, {
+    "name": "United Arab Emirates",
+    "capital": "Abu Dhabi",
+    "region": "Asia",
+    "population": 9856000,
+    "demonym": "Emirati",
+    "nativeName": "دولة الإمارات العربية المتحدة"
+}, {
+    "name": "United Kingdom of Great Britain and Northern Ireland",
+    "capital": "London",
+    "region": "Europe",
+    "population": 65110000,
+    "demonym": "British",
+    "nativeName": "United Kingdom"
+}, {
+    "name": "United States of America",
+    "capital": "Washington, D.C.",
+    "region": "Americas",
+    "population": 323947000,
+    "demonym": "American",
+    "nativeName": "United States"
+}, {
+    "name": "Uruguay",
+    "capital": "Montevideo",
+    "region": "Americas",
+    "population": 3480222,
+    "demonym": "Uruguayan",
+    "nativeName": "Uruguay"
+}, {
+    "name": "Uzbekistan",
+    "capital": "Tashkent",
+    "region": "Asia",
+    "population": 31576400,
+    "demonym": "Uzbekistani",
+    "nativeName": "O‘zbekiston"
+}, {
+    "name": "Vanuatu",
+    "capital": "Port Vila",
+    "region": "Oceania",
+    "population": 277500,
+    "demonym": "Ni-Vanuatu",
+    "nativeName": "Vanuatu"
+}, {
+    "name": "Venezuela (Bolivarian Republic of)",
+    "capital": "Caracas",
+    "region": "Americas",
+    "population": 31028700,
+    "demonym": "Venezuelan",
+    "nativeName": "Venezuela"
+}, {
+    "name": "Viet Nam",
+    "capital": "Hanoi",
+    "region": "Asia",
+    "population": 92700000,
+    "demonym": "Vietnamese",
+    "nativeName": "Việt Nam"
+}, {
+    "name": "Wallis and Futuna",
+    "capital": "Mata-Utu",
+    "region": "Oceania",
+    "population": 11750,
+    "demonym": "Wallis and Futuna Islander",
+    "nativeName": "Wallis et Futuna"
+}, {
+    "name": "Western Sahara",
+    "capital": "El Aaiún",
+    "region": "Africa",
+    "population": 510713,
+    "demonym": "Sahrawi",
+    "nativeName": "الصحراء الغربية"
+}, {
+    "name": "Yemen",
+    "capital": "Sana'a",
+    "region": "Asia",
+    "population": 27478000,
+    "demonym": "Yemeni",
+    "nativeName": "اليَمَن"
+}, {
+    "name": "Zambia",
+    "capital": "Lusaka",
+    "region": "Africa",
+    "population": 15933883,
+    "demonym": "Zambian",
+    "nativeName": "Zambia"
+}, {
+    "name": "Zimbabwe",
+    "capital": "Harare",
+    "region": "Africa",
+    "population": 14240168,
+    "demonym": "Zimbabwean",
+    "nativeName": "Zimbabwe"
+}]

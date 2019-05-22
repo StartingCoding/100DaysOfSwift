@@ -16,7 +16,7 @@ class ViewController: UITableViewController {
         
         title = "Country Facts"
         
-        if let urlPath = Bundle.main.url(forResource: "aruba", withExtension: "json") {
+        if let urlPath = Bundle.main.url(forResource: "countries", withExtension: "json") {
             if let data = try? Data(contentsOf: urlPath) {
                 parse(json: data)
             }
@@ -41,7 +41,14 @@ class ViewController: UITableViewController {
             countries = data
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailCountry") as? DetailCountry {
+            vc.country = countries[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 
-// https://restcountries.eu
+    // https://restcountries.eu/rest/v2/all?fields=name;region;capital;population;demonym;nativeName
 }
 
