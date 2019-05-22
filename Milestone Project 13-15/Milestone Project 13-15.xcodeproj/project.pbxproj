@@ -12,6 +12,8 @@
 		AB1429CF228EBD7B00B54727 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1429CD228EBD7B00B54727 /* Main.storyboard */; };
 		AB1429D1228EBD8000B54727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1429D0228EBD8000B54727 /* Assets.xcassets */; };
 		AB1429D4228EBD8000B54727 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1429D2228EBD8000B54727 /* LaunchScreen.storyboard */; };
+		AB834CB52295505D00E9382E /* aruba.json in Resources */ = {isa = PBXBuildFile; fileRef = AB834CB42295505D00E9382E /* aruba.json */; };
+		AB834CB9229551FE00E9382E /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB834CB8229551FE00E9382E /* Country.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		AB1429D0228EBD8000B54727 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB1429D3228EBD8000B54727 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB1429D5228EBD8000B54727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB834CB42295505D00E9382E /* aruba.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = aruba.json; sourceTree = "<group>"; };
+		AB834CB8229551FE00E9382E /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 			children = (
 				AB1429C9228EBD7B00B54727 /* AppDelegate.swift */,
 				AB1429CB228EBD7B00B54727 /* ViewController.swift */,
+				AB834CB8229551FE00E9382E /* Country.swift */,
 				AB1429CD228EBD7B00B54727 /* Main.storyboard */,
 				AB1429D0228EBD8000B54727 /* Assets.xcassets */,
 				AB1429D2228EBD8000B54727 /* LaunchScreen.storyboard */,
 				AB1429D5228EBD8000B54727 /* Info.plist */,
+				AB834CB42295505D00E9382E /* aruba.json */,
 			);
 			path = "Milestone Project 13-15";
 			sourceTree = "<group>";
@@ -123,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB1429D4228EBD8000B54727 /* LaunchScreen.storyboard in Resources */,
+				AB834CB52295505D00E9382E /* aruba.json in Resources */,
 				AB1429D1228EBD8000B54727 /* Assets.xcassets in Resources */,
 				AB1429CF228EBD7B00B54727 /* Main.storyboard in Resources */,
 			);
@@ -136,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB1429CC228EBD7B00B54727 /* ViewController.swift in Sources */,
+				AB834CB9229551FE00E9382E /* Country.swift in Sources */,
 				AB1429CA228EBD7B00B54727 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
