@@ -19,6 +19,7 @@ class ActionViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addScript))
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -43,7 +44,7 @@ class ActionViewController: UIViewController {
 
     @IBAction func done() {
         let item = NSExtensionItem()
-        let argument: NSDictionary = ["customJavaScript": script.text]
+        let argument: NSDictionary = ["customJavaScript": script.text!]
         let webDictionary: NSDictionary = [NSExtensionJavaScriptFinalizeArgumentKey: argument]
         let customJavaScript = NSItemProvider(item: webDictionary, typeIdentifier: kUTTypePropertyList as String)
         item.attachments = [customJavaScript]
@@ -68,4 +69,16 @@ class ActionViewController: UIViewController {
         script.scrollRangeToVisible(selectedRange)
     }
 
+    @objc func addScript() {
+        let ac = UIAlertController(title: "Useful Scripts", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "alert(document.title);", style: .default) { [weak self] (action) in
+            self?.script.text = action.title
+        })
+        ac.addAction(UIAlertAction(title: "Source Code -- Kinda", style: .default) { [weak self] (action) in
+            self?.script.text = "var markup = document.documentElement.innerHTML;\nalert(markup);"
+        })
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(ac, animated: true)
+    }
 }
