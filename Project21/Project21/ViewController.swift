@@ -44,10 +44,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         content.userInfo = ["customData": "fizzbuzz"]
         content.sound = .default
         
-        var dateComponents = DateComponents()
-        dateComponents.hour = 10
-        dateComponents.minute = 30
-        //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+//        var dateComponents = DateComponents()
+//        dateComponents.hour = 10
+//        dateComponents.minute = 30
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
@@ -75,9 +75,15 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         case UNNotificationDefaultActionIdentifier:
             //the user swiped to unlock
             print("Default identifier")
+            let ac = UIAlertController(title: "Default identifier", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
             
         case "show":
             print("Show more information...")
+            let ac = UIAlertController(title: "Show more information", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
             
         default:
             break
