@@ -6,12 +6,14 @@
 //  Copyright © 2019 Loris. All rights reserved.
 //
 
+import UserNotifications
 import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
+    @IBOutlet var gameLabel: UILabel!
     
     var countries = [String]()
     var score = 0
@@ -38,7 +40,60 @@ class ViewController: UIViewController {
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(displayScore))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(displayScore))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reminder", style: .plain, target: self, action: #selector(notification))
+    }
+    
+    @objc func notification() {
+        // Remove previous pending notifications
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        // Request permission to display notification
+        requestPermissionNotification()
+    }
+    
+    // Request permission to display notification
+    func requestPermissionNotification() {
+        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                
+                // Schedule notifications for 7 days
+                for day in 1...7 {
+                    self.scheduleForWeek(timeTrigger: TimeInterval(5 * day))
+                }
+                
+            } else {
+                self.performSelector(onMainThread: #selector(self.permissionDeniedAlert), with: nil, waitUntilDone: false)
+            }
+        }
+    }
+    
+    @objc func permissionDeniedAlert() {
+        let ac = UIAlertController(title: "That's a bummer", message: "If you want to be notified, you have to reset the notification's setting of the app.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(ac, animated: true)
+    }
+    
+    // schedule for the week
+    func scheduleForWeek(timeTrigger: TimeInterval) {
+        let center = UNUserNotificationCenter.current()
+        
+        // Set up the content of the notification
+        let content = UNMutableNotificationContent()
+        content.title = "It's time to play"
+        content.body = "Try to beat your highscore"
+        content.categoryIdentifier = "alarm"
+        content.sound = .default
+        
+        // Set up the trigger of the notification
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeTrigger, repeats: false)
+        
+        // Set up the request for the notification ( unique identifier - content - trigger )
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
     }
     
     func askQuestion(action: UIAlertAction! = nil) {
@@ -49,7 +104,7 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
-        title = "You're score is: \(score) - Guessing: \(countries[correctAnswer].uppercased())"
+        gameLabel.text = "You're score is: \(score) - Guessing: \(countries[correctAnswer].uppercased())"
     }
 
     

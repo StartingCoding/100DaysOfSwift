@@ -19,35 +19,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwl-Kz-5QX">
-                                <rect key="frame" x="107" y="100" width="200" height="100"/>
+                                <rect key="frame" x="107" y="175" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fYY-Wg-dTK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMI-vu-Im1">
-                                <rect key="frame" x="107" y="230" width="200" height="100"/>
+                                <rect key="frame" x="107" y="316" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4jm-r4-nzQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3Q-9e-dKj">
-                                <rect key="frame" x="107" y="360" width="200" height="100"/>
+                                <rect key="frame" x="107" y="464" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5He-de-umP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJt-R9-ObA">
+                                <rect key="frame" x="172.5" y="118" width="69" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VMI-vu-Im1" firstAttribute="top" secondItem="hwl-Kz-5QX" secondAttribute="bottom" constant="30" id="Fxs-Bc-U61"/>
-                            <constraint firstItem="hwl-Kz-5QX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="HxZ-ce-2S7"/>
-                            <constraint firstItem="hwl-Kz-5QX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KA9-la-UCn"/>
-                            <constraint firstItem="L3Q-9e-dKj" firstAttribute="centerX" secondItem="VMI-vu-Im1" secondAttribute="centerX" id="Tff-7I-jle"/>
-                            <constraint firstItem="VMI-vu-Im1" firstAttribute="centerX" secondItem="hwl-Kz-5QX" secondAttribute="centerX" id="nnQ-cR-4O9"/>
-                            <constraint firstItem="L3Q-9e-dKj" firstAttribute="top" secondItem="VMI-vu-Im1" secondAttribute="bottom" constant="30" id="pu0-sn-y5S"/>
+                            <constraint firstItem="hwl-Kz-5QX" firstAttribute="top" secondItem="bJt-R9-ObA" secondAttribute="bottom" constant="36" id="11d-au-5Mb"/>
+                            <constraint firstItem="L3Q-9e-dKj" firstAttribute="top" secondItem="VMI-vu-Im1" secondAttribute="bottom" constant="48" id="BS3-n9-2q1"/>
+                            <constraint firstItem="hwl-Kz-5QX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FOa-gE-tKD"/>
+                            <constraint firstItem="bJt-R9-ObA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="UB7-zn-qF0"/>
+                            <constraint firstItem="VMI-vu-Im1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Zld-Fg-cPY"/>
+                            <constraint firstItem="L3Q-9e-dKj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="g1S-Zl-y0N"/>
+                            <constraint firstItem="bJt-R9-ObA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oH3-fv-cAI"/>
+                            <constraint firstItem="VMI-vu-Im1" firstAttribute="top" secondItem="hwl-Kz-5QX" secondAttribute="bottom" constant="41" id="pDm-6N-pS9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -56,6 +64,7 @@
                         <outlet property="button1" destination="hwl-Kz-5QX" id="rB9-xD-yJS"/>
                         <outlet property="button2" destination="VMI-vu-Im1" id="gDV-Ir-ISO"/>
                         <outlet property="button3" destination="L3Q-9e-dKj" id="bEf-xE-dku"/>
+                        <outlet property="gameLabel" destination="bJt-R9-ObA" id="bqX-gz-lAW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
