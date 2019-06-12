@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AB32566022ABC5D500AD8FA0 /* shot.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB32565F22ABC5D500AD8FA0 /* shot.wav */; };
 		AB6A60CA22B1049D004F248F /* reload.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB6A60C922B1049D004F248F /* reload.wav */; };
+		AB6A60CC22B15C03004F248F /* gameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB6A60CB22B15C03004F248F /* gameOver.wav */; };
 		ABDE6A692296AC9F000A8B0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDE6A682296AC9F000A8B0B /* AppDelegate.swift */; };
 		ABDE6A6B2296AC9F000A8B0B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ABDE6A6A2296AC9F000A8B0B /* GameScene.sks */; };
 		ABDE6A6F2296AC9F000A8B0B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDE6A6E2296AC9F000A8B0B /* GameScene.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		AB32565F22ABC5D500AD8FA0 /* shot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shot.wav; sourceTree = "<group>"; };
 		AB6A60C922B1049D004F248F /* reload.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = reload.wav; sourceTree = "<group>"; };
+		AB6A60CB22B15C03004F248F /* gameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = gameOver.wav; path = ../../Project14/Project14/gameOver.wav; sourceTree = "<group>"; };
 		ABDE6A652296AC9F000A8B0B /* Milestone Project 16-18.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone Project 16-18.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABDE6A682296AC9F000A8B0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABDE6A6A2296AC9F000A8B0B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				ABDE6A7A2296ACA1000A8B0B /* Info.plist */,
 				AB32565F22ABC5D500AD8FA0 /* shot.wav */,
 				AB6A60C922B1049D004F248F /* reload.wav */,
+				AB6A60CB22B15C03004F248F /* gameOver.wav */,
 			);
 			path = "Milestone Project 16-18";
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 				AB32566022ABC5D500AD8FA0 /* shot.wav in Resources */,
 				ABDE6A742296AC9F000A8B0B /* Main.storyboard in Resources */,
 				ABDE6A6B2296AC9F000A8B0B /* GameScene.sks in Resources */,
+				AB6A60CC22B15C03004F248F /* gameOver.wav in Resources */,
 				ABDE6A762296ACA1000A8B0B /* Assets.xcassets in Resources */,
 				ABDE6A792296ACA1000A8B0B /* LaunchScreen.storyboard in Resources */,
 				AB6A60CA22B1049D004F248F /* reload.wav in Resources */,

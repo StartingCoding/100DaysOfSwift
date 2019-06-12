@@ -22,7 +22,17 @@ class GameScene: SKScene {
     }
     
     var gameOverLabel: SKSpriteNode!
-    var isGameOver: Bool = false
+    var isGameOver: Bool = true {
+        willSet {
+            if newValue {           // If isGameOver is true (newValue) show New Game label
+                playGame.alpha = 1
+            } else if !newValue {   // If isGameOver is false (opposite of newValue) hide New Game label
+                playGame.alpha = 0
+            }
+        }
+    }
+    
+    var playGame: SKLabelNode!
     
     var gameTimer: Timer?
     
@@ -102,12 +112,31 @@ class GameScene: SKScene {
         reloadLabel.name = "reload"
         addChild(reloadLabel)
         
-        startGame()
+        playGame = SKLabelNode(fontNamed: "Chalkduster")
+        playGame.fontColor = .green
+        playGame.position = CGPoint(x: 512, y: 690)
+        playGame.zPosition = 101
+        playGame.fontSize = 77
+        playGame.text = "New Game"
+        playGame.name = "playGame"
+        playGame.alpha = 1
+        addChild(playGame)
+        
+        gameOverLabel = SKSpriteNode(imageNamed: "game-over")
+        gameOverLabel.zPosition = 101
+        gameOverLabel.position = CGPoint(x: 512, y: 384)
+        gameOverLabel.alpha = 0
+        addChild(gameOverLabel)
     }
     
     @objc func startGame() {
         // Start to move the water on the background
         createStartingAnimation()
+        
+        // Reset initial parameters
+        minute = 60
+        shots = 3
+        score = 0
         
         // Fire a timer every one second so it updates the label to display how many seconds remain and creates enemy
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(manageTime), userInfo: nil, repeats: true)
@@ -123,15 +152,14 @@ class GameScene: SKScene {
         if minute == 0 {
             gameTimer?.invalidate()
             
-            isGameOver = true
+            isGameOver.toggle() // false set to true
             
-            // Display a GameOver image
-            gameOverLabel = SKSpriteNode(imageNamed: "game-over")
-            gameOverLabel.zPosition = 101
-            gameOverLabel.position = CGPoint(x: 512, y: 384)
-            gameOverLabel.alpha = 0
-            gameOverLabel.run(SKAction.fadeIn(withDuration: 1))
-            addChild(gameOverLabel)
+            // Display a GameOver image with fadeIn animation
+            gameOverLabel.run(SKAction.fadeIn(withDuration: 1.5))
+            
+            // Game Over sound
+            run(SKAction.playSoundFileNamed("gameOver", waitForCompletion: false))
+            
         }
     }
     
@@ -222,15 +250,22 @@ class GameScene: SKScene {
         let location = touch.location(in: self)
         let tappedNodes = nodes(at: location)
         
+        // If tappedNodes contains playGame label it will means restart the whole game
+        if tappedNodes.contains(where: { $0.name == "playGame" }) {
+            startGame()
+            isGameOver.toggle() // true set to false
+            return
+        }
+        
         // If tappedNodes contains reload node play reload sound and refill shots
         if tappedNodes.contains(where: { $0.name == "reload" }) {
-            run(SKAction.playSoundFileNamed("reload.wav", waitForCompletion: false))
+            run(SKAction.playSoundFileNamed("reload", waitForCompletion: false))
             shots = 3
         } else {
             
-            // if the node doesn't contain reload, shot only if you have at least 1 ammo
+            // If the node doesn't contain reload, shot only if you have at least 1 ammo
             if shots > 0 {
-                run(SKAction.playSoundFileNamed("shot.wav", waitForCompletion: false))
+                run(SKAction.playSoundFileNamed("shot", waitForCompletion: false))
                 shots -= 1
             } else {
                 return
