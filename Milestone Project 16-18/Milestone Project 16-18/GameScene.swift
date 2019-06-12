@@ -33,6 +33,15 @@ class GameScene: SKScene {
         }
     }
     
+    var shotsImage: SKSpriteNode!
+    var shots = 3 {
+        didSet {
+            shotsImage.texture = SKTexture(imageNamed: "shots\(shots)")
+        }
+    }
+    
+    var reloadLabel: SKLabelNode!
+    
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "wood-background")
         background.blendMode = .replace
@@ -80,6 +89,19 @@ class GameScene: SKScene {
         scoreLabel.horizontalAlignmentMode = .left
         addChild(scoreLabel)
         
+        shotsImage = SKSpriteNode(imageNamed: "shots\(shots)")
+        shotsImage.position = CGPoint(x: 700, y: 70)
+        shotsImage.zPosition = 101
+        addChild(shotsImage)
+        
+        reloadLabel = SKLabelNode(fontNamed: "Chalkduster")
+        reloadLabel.position = CGPoint(x: 840, y: 60)
+        reloadLabel.zPosition = 101
+        reloadLabel.fontSize = 22
+        reloadLabel.text = "RELOAD!"
+        reloadLabel.name = "reload"
+        addChild(reloadLabel)
+        
         startGame()
     }
     
@@ -114,8 +136,10 @@ class GameScene: SKScene {
     }
     
     func spawnEnemy() {
+        // if the game is over return and stop spwaning enemy
         guard !isGameOver else { return }
         
+        // Randomized the spawn of the enemy on 1 random line out of 3
         if Int.random(in: 1...2) == 1 {
             let numLine = Int.random(in: 1...3)
             
@@ -148,9 +172,11 @@ class GameScene: SKScene {
             target = SKSpriteNode(imageNamed: "target0")
         }
         
-        // Set good bad value
+        // Set good or bad value
         if randomTarget == 0 {
             target.name = "badTarget"
+        } else if randomTarget == 3 {
+            target.name = "goldTarget"
         } else {
             target.name = "goodTarget"
         }
@@ -158,7 +184,7 @@ class GameScene: SKScene {
         let moveTargetSlowOnLine = SKAction.moveTo(x: -200, duration: 3)
         let moveTargetFastOnLine = SKAction.moveTo(x: -200, duration: 1)
         
-        // Set speed and size of fast target
+        // Set speed and size of fast and slow target
         if randomTarget == 3 {
             target.xScale = 0.7
             target.yScale = 0.7
@@ -191,22 +217,67 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Fisrt steps for take nodes where the user tapped
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let tappedNodes = nodes(at: location)
         
-        // Shot sound
-        run(SKAction.playSoundFileNamed("shot.wav", waitForCompletion: false))
-        
-        for node in tappedNodes {
-            if node.name == "badTarget" {
-                node.removeAllActions()
-                node.run(SKAction.fadeOut(withDuration: 0.3))
-            } else if node.name == "goodTarget" {
-                node.removeAllActions()
-                node.run(SKAction.fadeOut(withDuration: 0.3))
+        // If tappedNodes contains reload node play reload sound and refill shots
+        if tappedNodes.contains(where: { $0.name == "reload" }) {
+            run(SKAction.playSoundFileNamed("reload.wav", waitForCompletion: false))
+            shots = 3
+        } else {
+            
+            // if the node doesn't contain reload, shot only if you have at least 1 ammo
+            if shots > 0 {
+                run(SKAction.playSoundFileNamed("shot.wav", waitForCompletion: false))
+                shots -= 1
+            } else {
+                return
             }
         }
+        
+        // Evaluating if tapped a good target or a bad one or the reload label
+        for node in tappedNodes {
+            if node.name == "badTarget" {
+                
+                node.removeAllActions()
+                node.run(SKAction.fadeOut(withDuration: 0.3))
+                
+                // if it's a bad one you loose half of the points
+                if score > 0 {
+                    score /= 2
+                } else {
+                    
+                    // If you don't have any points you loose 1500 points
+                    score -= 5000
+                }
+                
+            } else if node.name == "goodTarget" {
+                
+                node.removeAllActions()
+                node.run(SKAction.fadeOut(withDuration: 0.3))
+                
+                // If it's a good one you gain 100 points
+                score += 100
+                
+            } else if node.name == "goldTarget" {
+                
+                node.removeAllActions()
+                node.run(SKAction.fadeOut(withDuration: 0.3))
+                
+                // If it's gold one, your score multiplies by 5
+                if score > 0 {
+                    score *= 5
+                } else {
+                    
+                    // If you don't have any points you gain 1500 points
+                    score += 1500
+                }
+                
+            }
+        }
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
