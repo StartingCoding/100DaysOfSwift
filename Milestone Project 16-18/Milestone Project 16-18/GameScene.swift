@@ -134,6 +134,7 @@ class GameScene: SKScene {
         createStartingAnimation()
         
         // Reset initial parameters
+        gameOverLabel.alpha = 0
         minute = 60
         shots = 3
         score = 0
