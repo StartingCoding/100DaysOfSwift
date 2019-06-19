@@ -9,8 +9,12 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    let defaults = UserDefaults.standard
+    
     @IBOutlet var textView: UITextView!
     var note: String?
+    
+    var notes = [Note]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +45,15 @@ class DetailViewController: UIViewController {
         // If the keyboard has finished hiding the content inset of textView will be 0
         if notification.name == UIResponder.keyboardWillHideNotification {
             textView.contentInset = .zero
+            
+            // Hide done button when hiding keyboard
+            navigationItem.setRightBarButton(nil, animated: true)
         } else {
             // If the keyboard is not hiding (it's visible) the bottom of the content inset will be the height of the keyboard
             textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            
+            // Show Done button when showing keyboard
+            navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done)), animated: true)
         }
         
         // Fix the scrolling indicator to not go below the keyboard
@@ -53,6 +63,27 @@ class DetailViewController: UIViewController {
         let selectedRange = textView.selectedRange
         // Scroll the view to the cursor
         textView.scrollRangeToVisible(selectedRange)
+    }
+    
+    @objc func done() {
+        // Add the note to the array of notes and then save
+        let newNote = Note(title: textView.text)
+        
+        notes.append(newNote)
+        save()
+        
+        // Go back to the first view controller in the navigation stack
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        
+        if let savedNotes = try? jsonEncoder.encode(notes) {
+            defaults.set(savedNotes, forKey: "notes")
+        } else {
+            print("Failed to save notes.")
+        }
     }
 
 }

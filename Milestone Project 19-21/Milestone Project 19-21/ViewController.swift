@@ -9,7 +9,24 @@
 import UIKit
 
 class ViewController: UITableViewController {
-    var notes = ["Test-1", "Test-2", "Test-3"]
+    let defaults = UserDefaults.standard
+    
+    var notes = [Note]()
+    
+    // When the view will appear on screen, if there is notes saved load them.
+    override func viewWillAppear(_ animated: Bool) {
+        if let savedNotes = defaults.object(forKey: "notes") as? Data {
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                notes = try jsonDecoder.decode([Note].self , from: savedNotes)
+            } catch {
+                print("Failed to save people")
+            }
+            
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +38,7 @@ class ViewController: UITableViewController {
         // Use an instance property of ViewController to create an edit/done button that change based on editing the cell
         navigationItem.rightBarButtonItem = self.editButtonItem
         
-        // Set up the toolbar with a new button on the right for creating a new note
+        // Set up the toolbar with a button on the right for creating a new note
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let newNote = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(createNewNote))
         toolbarItems = [spacer, newNote]
@@ -36,8 +53,8 @@ class ViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "note", for: indexPath)
-        cell.textLabel?.text = notes[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "note", for: indexPath) as! NoteCell
+        cell.Title.text = notes[indexPath.row].title
         return cell
     }
     
@@ -48,19 +65,31 @@ class ViewController: UITableViewController {
         if editingStyle == .delete {
             notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            save()
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             navigationController?.pushViewController(vc, animated: true)
-            vc.note = notes[indexPath.row]
+            vc.note = notes[indexPath.row].title
         }
     }
     
     @objc func createNewNote() {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             navigationController?.pushViewController(vc, animated: true)
+            vc.notes = notes
+        }
+    }
+    
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        
+        if let savedNotes = try? jsonEncoder.encode(notes) {
+            defaults.set(savedNotes, forKey: "notes")
+        } else {
+            print("Failed to save notes.")
         }
     }
     
