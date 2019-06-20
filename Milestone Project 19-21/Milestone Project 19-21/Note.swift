@@ -10,8 +10,10 @@ import UIKit
 
 class Note: Codable {
     var title: String
+    var date: String
     
-    init(title: String) {
+    init(title: String, date: String) {
         self.title = title
+        self.date = date
     }
 }

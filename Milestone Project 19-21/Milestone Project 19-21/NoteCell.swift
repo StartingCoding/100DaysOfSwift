@@ -11,5 +11,6 @@ import UIKit
 class NoteCell: UITableViewCell {
     
     @IBOutlet var Title: UILabel!
+    @IBOutlet var Date: UILabel!
     
 }

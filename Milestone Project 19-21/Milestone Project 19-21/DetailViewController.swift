@@ -12,7 +12,9 @@ class DetailViewController: UIViewController {
     let defaults = UserDefaults.standard
     
     @IBOutlet var textView: UITextView!
-    var note: String?
+    
+    var indexOfNote: Int?
+    var detailNote: Note?
     
     var notes = [Note]()
     
@@ -21,8 +23,8 @@ class DetailViewController: UIViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         
-        if let textNote = note {
-            textView.text = textNote
+        if let titleNote = detailNote {
+            textView.text = titleNote.title
         }
         
         // Set up notifications when keyboard changing frame every state of its size (show, hide, orientation, QuickType...)
@@ -67,10 +69,15 @@ class DetailViewController: UIViewController {
     
     @objc func done() {
         // Add the note to the array of notes and then save
-        let newNote = Note(title: textView.text)
-        
-        notes.append(newNote)
-        save()
+        if detailNote != nil {
+            detailNote?.title = textView.text
+            notes[indexOfNote!] = detailNote!
+            save()
+        } else if textView.text.count > 1 {
+            let newNote = Note(title: textView.text, date: "00-00-00")
+            notes.append(newNote)
+            save()
+        }
         
         // Go back to the first view controller in the navigation stack
         navigationController?.popViewController(animated: true)
@@ -78,7 +85,7 @@ class DetailViewController: UIViewController {
     
     func save() {
         let jsonEncoder = JSONEncoder()
-        
+
         if let savedNotes = try? jsonEncoder.encode(notes) {
             defaults.set(savedNotes, forKey: "notes")
         } else {

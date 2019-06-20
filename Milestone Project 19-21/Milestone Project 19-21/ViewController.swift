@@ -21,7 +21,7 @@ class ViewController: UITableViewController {
             do {
                 notes = try jsonDecoder.decode([Note].self , from: savedNotes)
             } catch {
-                print("Failed to save people")
+                print("Failed to load notes")
             }
             
             tableView.reloadData()
@@ -58,7 +58,7 @@ class ViewController: UITableViewController {
         return cell
     }
     
-    // Editing cells
+    // Editing cells https://www.hackingwithswift.com/example-code/uikit/how-to-swipe-to-delete-uitableviewcells
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         // If the editing style of the cell is on delete mode, remove it from the array of notes and delete the row with fadeOut
@@ -72,7 +72,9 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             navigationController?.pushViewController(vc, animated: true)
-            vc.note = notes[indexPath.row].title
+            vc.detailNote = notes[indexPath.row]
+            vc.indexOfNote = indexPath.row
+            vc.notes = notes
         }
     }
     

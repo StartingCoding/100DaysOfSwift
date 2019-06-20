@@ -14,31 +14,41 @@
         <scene sceneID="dUr-ql-PwP">
             <objects>
                 <tableViewController storyboardIdentifier="List" id="5Zz-Vv-XsY" customClass="ViewController" customModule="Milestone_Project_19_21" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Be6-4H-uzO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Be6-4H-uzO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="note" id="JVs-vm-b5b" customClass="NoteCell" customModule="Milestone_Project_19_21" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JVs-vm-b5b" id="2v4-cw-Bjl">
-                                    <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmq-KL-TFI">
-                                            <rect key="frame" x="32" y="11.5" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmq-KL-TFI">
+                                            <rect key="frame" x="32" y="11" width="34" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zp-fb-Job">
+                                            <rect key="frame" x="32" y="44" width="36" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Kmq-KL-TFI" firstAttribute="leading" secondItem="2v4-cw-Bjl" secondAttribute="leadingMargin" constant="12" id="351-wu-eOP"/>
-                                        <constraint firstItem="Kmq-KL-TFI" firstAttribute="centerY" secondItem="2v4-cw-Bjl" secondAttribute="centerY" id="Hgq-rt-hX8"/>
+                                        <constraint firstItem="Kmq-KL-TFI" firstAttribute="top" secondItem="2v4-cw-Bjl" secondAttribute="topMargin" id="G5E-14-niL"/>
+                                        <constraint firstItem="9Zp-fb-Job" firstAttribute="top" secondItem="Kmq-KL-TFI" secondAttribute="bottom" constant="12" id="OLE-4v-cIn"/>
+                                        <constraint firstItem="Kmq-KL-TFI" firstAttribute="leading" secondItem="9Zp-fb-Job" secondAttribute="leading" id="ONE-3J-VaK"/>
+                                        <constraint firstItem="Kmq-KL-TFI" firstAttribute="leading" secondItem="2v4-cw-Bjl" secondAttribute="leadingMargin" constant="12" id="pDA-Rk-9is"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="Date" destination="9Zp-fb-Job" id="HDx-DS-uar"/>
                                     <outlet property="Title" destination="Kmq-KL-TFI" id="TQC-HV-LyZ"/>
                                 </connections>
                             </tableViewCell>
