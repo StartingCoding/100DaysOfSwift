@@ -20,6 +20,7 @@ class ViewController: UITableViewController {
             
             do {
                 notes = try jsonDecoder.decode([Note].self , from: savedNotes)
+                notes.sort { $0.date > $1.date }
             } catch {
                 print("Failed to load notes")
             }
@@ -30,13 +31,13 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         title = "Apple Notes"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         // Use an instance property of ViewController to create an edit/done button that change based on editing the cell
         navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationItem.rightBarButtonItem?.tintColor = .orange
         
         // Set up the toolbar with a button on the right for creating a new note
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -46,6 +47,9 @@ class ViewController: UITableViewController {
         
         // If the cell is empty (table view without content) make it a clear view
         tableView.tableFooterView = UIView()
+        
+        let imageBackground = UIImageView(image: UIImage(named: "background"))
+        tableView.backgroundView = imageBackground
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,7 +58,8 @@ class ViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "note", for: indexPath) as! NoteCell
-        cell.Title.text = notes[indexPath.row].title
+        cell.Title.text = String(notes[indexPath.row].title.prefix(10))
+        cell.Date.text = notes[indexPath.row].date
         return cell
     }
     

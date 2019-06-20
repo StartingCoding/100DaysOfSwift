@@ -23,6 +23,8 @@ class DetailViewController: UIViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         
+        textView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        
         if let titleNote = detailNote {
             textView.text = titleNote.title
         }
@@ -32,6 +34,9 @@ class DetailViewController: UIViewController {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        let background = UIImage(named: "background")
+        view.backgroundColor = UIColor(patternImage: background!)
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
@@ -46,20 +51,21 @@ class DetailViewController: UIViewController {
         
         // If the keyboard has finished hiding the content inset of textView will be 0
         if notification.name == UIResponder.keyboardWillHideNotification {
-            textView.contentInset = .zero
+            textView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+            // Fix the scrolling indicator to not go below the keyboard
+            textView.scrollIndicatorInsets = .zero
             
             // Hide done button when hiding keyboard
             navigationItem.setRightBarButton(nil, animated: true)
         } else {
             // If the keyboard is not hiding (it's visible) the bottom of the content inset will be the height of the keyboard
-            textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            textView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom + 5.00, right: 20)
+            // Fix the scrolling indicator to not go below the keyboard
+            textView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
             
             // Show Done button when showing keyboard
             navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done)), animated: true)
         }
-        
-        // Fix the scrolling indicator to not go below the keyboard
-        textView.scrollIndicatorInsets = textView.contentInset
         
         // selectedRange is where is the cursor
         let selectedRange = textView.selectedRange
@@ -68,13 +74,17 @@ class DetailViewController: UIViewController {
     }
     
     @objc func done() {
+        let rightNow = Date()
+        let customDate = DateFormatter.localizedString(from: rightNow, dateStyle: .short, timeStyle: .none)
+
         // Add the note to the array of notes and then save
         if detailNote != nil {
             detailNote?.title = textView.text
+            detailNote?.date = customDate
             notes[indexOfNote!] = detailNote!
             save()
         } else if textView.text.count > 1 {
-            let newNote = Note(title: textView.text, date: "00-00-00")
+            let newNote = Note(title: textView.text, date: customDate)
             notes.append(newNote)
             save()
         }
