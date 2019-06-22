@@ -18,21 +18,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-zg-qUx">
+                                <rect key="frame" x="79" y="320" width="256" height="256"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gWU-zg-qUx" secondAttribute="height" multiplier="1:1" id="qxM-Cj-hi2"/>
+                                    <constraint firstAttribute="width" constant="256" id="u51-kL-ztt"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNKNOWN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbQ-JP-8uw">
                                 <rect key="frame" x="111" y="429" width="192" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beacon Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33e-PC-VUR">
+                                <rect key="frame" x="158" y="497" width="98" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="33e-PC-VUR" firstAttribute="centerX" secondItem="tbQ-JP-8uw" secondAttribute="centerX" id="7Hz-S6-OEZ"/>
+                            <constraint firstItem="gWU-zg-qUx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QLc-NL-VZd"/>
                             <constraint firstItem="tbQ-JP-8uw" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="WoE-QW-zHo"/>
                             <constraint firstItem="tbQ-JP-8uw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZPs-ad-Jp7"/>
+                            <constraint firstItem="33e-PC-VUR" firstAttribute="top" secondItem="tbQ-JP-8uw" secondAttribute="bottom" constant="20" id="obf-Pm-0mW"/>
+                            <constraint firstItem="gWU-zg-qUx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pnx-Do-3SW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="beaconName" destination="33e-PC-VUR" id="qau-Ha-aHk"/>
+                        <outlet property="circle" destination="gWU-zg-qUx" id="OdB-Y5-Ctc"/>
                         <outlet property="distanceReading" destination="tbQ-JP-8uw" id="DGJ-v9-o2Q"/>
                     </connections>
                 </viewController>
