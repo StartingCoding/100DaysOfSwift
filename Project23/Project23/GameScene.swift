@@ -41,6 +41,19 @@ class GameScene: SKScene {
     
     var activeEnemies = [SKSpriteNode]()
     
+    // Position code
+    // random position bottom edge of the screen
+    var randomBottomEdgePosition = CGPoint()
+    
+    // random spin velocity
+    var randomSpinningVelocity = CGFloat()
+    
+    // random horizontal velocity based on position
+    var randomHorizontalVelocity = Int()
+    
+    // random vertical velocity
+    var randomVerticalVelocity = Int()
+    
     // Time to popup enemies
     var popupTime = 0.9
     
@@ -55,6 +68,7 @@ class GameScene: SKScene {
     var nextSequenceQueued = true
     
     var isGameEnded = false
+    var gameOverLabel: SKLabelNode!
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "sliceBackground")
@@ -141,8 +155,14 @@ class GameScene: SKScene {
         let nodesAtPoint = nodes(at: location)
         
         for case let node as SKSpriteNode in nodesAtPoint {
-            if node.name == "enemy" {
-                // destroy penguin
+            if node.name == "enemy" || node.name == "swift" {
+                // destroy enemy
+                
+                if node.name == "enemy" {
+                    score += 1
+                } else if node.name == "swift" {
+                    score += 10
+                }
                 
                 // Add a particle effect
                 if let emitter = SKEmitterNode(fileNamed: "sliceHitEnemy") {
@@ -163,8 +183,6 @@ class GameScene: SKScene {
                 
                 let seq = SKAction.sequence([group, .removeFromParent()])
                 node.run(seq)
-                
-                score += 1
                 
                 if let index = activeEnemies.firstIndex(of: node) {
                     activeEnemies.remove(at: index)
@@ -224,6 +242,16 @@ class GameScene: SKScene {
             livesImages[1].texture = SKTexture(imageNamed: "sliceLifeGone")
             livesImages[2].texture = SKTexture(imageNamed: "sliceLifeGone")
         }
+        
+        gameOverLabel = SKLabelNode(fontNamed: "Chalkduster")
+        gameOverLabel.position = CGPoint(x: 512, y: 344)
+        gameOverLabel.text = "GameOver"
+        gameOverLabel.fontSize = 94
+        gameOverLabel.zPosition = 4
+        gameOverLabel.alpha = 0
+        addChild(gameOverLabel)
+        
+        gameOverLabel.run(SKAction.fadeIn(withDuration: 0.4))
     }
     
     func playSwooshSound() {
@@ -339,40 +367,52 @@ class GameScene: SKScene {
                 emitter.position = CGPoint(x: 76, y: 64)
                 enemy.addChild(emitter)
             }
+        } else if enemyType == 6 {
+            // Create gold enemy
+            enemy = SKSpriteNode(imageNamed: "swift")
+            enemy.name = "swift"
+            
+            run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
         } else {
             // Create enemy
             enemy = SKSpriteNode(imageNamed: "penguin")
-            run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
             enemy.name = "enemy"
+            
+            run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
         }
         
-        // Position code goes here
+        // Position code
         // random position bottom edge of the screen
-        let randomPosition = CGPoint(x: Int.random(in: 64...960), y: -128)
-        enemy.position = randomPosition
+        randomBottomEdgePosition = CGPoint(x: Int.random(in: 64...960), y: -128)
         
         // random spin velocity
-        let randomAngularVelocity = CGFloat.random(in: -3...3)
-        let randomXVelocity: Int
-        
-        // random horizontal velocity based on position
-        if randomPosition.x < 256 {
-            randomXVelocity = Int.random(in: 8...15)
-        } else if randomPosition.x < 512 {
-            randomXVelocity = Int.random(in: 3...5)
-        } else if randomPosition.x < 768 {
-            randomXVelocity = -Int.random(in: 3...5)
-        } else {
-            randomXVelocity = -Int.random(in: 8...15)
-        }
+        randomSpinningVelocity = CGFloat.random(in: -3...3)
         
         // random vertical velocity
-        let randomYVelocity = Int.random(in: 24...32)
+        randomVerticalVelocity = Int.random(in: 24...32)
+        
+        enemy.position = randomBottomEdgePosition
+        
+        // random horizontal velocity based on position
+        if randomBottomEdgePosition.x < 256 {
+            randomHorizontalVelocity = Int.random(in: 8...15)
+        } else if randomBottomEdgePosition.x < 512 {
+            randomHorizontalVelocity = Int.random(in: 3...5)
+        } else if randomBottomEdgePosition.x < 768 {
+            randomHorizontalVelocity = -Int.random(in: 3...5)
+        } else {
+            randomHorizontalVelocity = -Int.random(in: 8...15)
+        }
         
         enemy.physicsBody = SKPhysicsBody(circleOfRadius: 64)
-        enemy.physicsBody?.velocity = CGVector(dx: randomXVelocity * 40, dy: randomYVelocity * 40)
-        enemy.physicsBody?.angularVelocity = randomAngularVelocity
+        enemy.physicsBody?.angularVelocity = randomSpinningVelocity
         enemy.physicsBody?.collisionBitMask = 0
+        
+        if enemyType == 6 {
+            enemy.physicsBody?.velocity = CGVector(dx: randomHorizontalVelocity * 70, dy: randomVerticalVelocity * 50)
+        } else {
+            enemy.physicsBody?.velocity = CGVector(dx: randomHorizontalVelocity * 40, dy: randomVerticalVelocity * 40)
+        }
         
         addChild(enemy)
         activeEnemies.append(enemy)
@@ -409,7 +449,7 @@ class GameScene: SKScene {
                 if node.position.y < -140 {
                     node.removeAllActions()
                     
-                    if node.name == "enemy" {
+                    if node.name == "enemy" || node.name == "swift" {
                         node.name = ""
                         
                         subtractLife()
