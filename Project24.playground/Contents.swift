@@ -95,3 +95,42 @@ nsMutableAttributesString.addAttribute(.font, value: UIFont.systemFont(ofSize: 1
 nsMutableAttributesString.addAttribute(.font, value: UIFont.systemFont(ofSize: 24), range: NSRange(location: 8, length: 1))
 nsMutableAttributesString.addAttribute(.font, value: UIFont.systemFont(ofSize: 32), range: NSRange(location: 10, length: 4))
 nsMutableAttributesString.addAttribute(.font, value: UIFont.systemFont(ofSize: 40), range: NSRange(location: 15, length: 6))
+
+/// TODO: Challenge 1
+
+// Custom withPrefix() adds a prefix to a tring if it doesn't exists already
+extension String {
+    func withPrefix(_ preFix: String) -> String {
+        guard !self.hasPrefix(preFix) else { return self }
+        return preFix + self
+    }
+}
+
+"pet".withPrefix("car")
+"carpet".withPrefix("car")
+
+// TODO: Challenge 2
+
+// Custom isNumeric check to see if a string contains any sort of number
+extension String {
+    var isNumeric: Bool {
+        return self.contains("\(Int())") || self.contains("\(Double())") || self.contains("\(Float())") ? true : false
+    }
+}
+
+"Hello, World".isNumeric
+"H3ll0, W0rld1".isNumeric
+"".isNumeric
+
+// TODO: Challenge 3
+
+// Custom lines property dividing String lines in array
+extension String {
+    var lines: [String] {
+        guard !self.isEmpty else { return [""] }
+        return self.components(separatedBy: "\n")
+    }
+}
+
+"this\nis\na\ntest".lines
+"".lines
