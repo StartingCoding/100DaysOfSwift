@@ -16,9 +16,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var isFirstDetection: Bool = false
     
-//    let regions = [UUID(uuidString: "5A4BCFCE-174E-4BAC-A814-092E77F6B7E5")!,
-//                   UUID(uuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0")!,
-//                   UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935")!]
+    // tracking the first beacon detected
+    var currentUUID: UUID?
     
     // Location Manager is the Manager that can managed the location of the device:
     // when the location changes notifies the delegate so it can act on it
@@ -66,37 +65,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager?.startMonitoring(for: firstBeaconRegion)
         // Start to send notifications detecting the iBeacon
         locationManager?.startRangingBeacons(in: firstBeaconRegion)
-//
-//        // Second iBeacon
-//        let uuidSecondBeacon = UUID(uuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0")!
-//        let secondBeaconRegion = CLBeaconRegion(proximityUUID: uuidSecondBeacon, major: 123, minor: 456, identifier: "Beacon 2")
-//
-//        // To start monitor a iBeacon region you must call this method at least once
-//        locationManager?.startMonitoring(for: secondBeaconRegion)
-//        // Start to send notifications detecting the iBeacon
-//        locationManager?.startRangingBeacons(in: secondBeaconRegion)
-//
-//        // Third iBeacon
-//        let uuidThirdBeacon = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935")!
-//        let thirdBeaconRegion = CLBeaconRegion(proximityUUID: uuidThirdBeacon, major: 123, minor: 456, identifier: "Beacon 3")
-//
-//        // To start monitor a iBeacon region you must call this method at least once
-//        locationManager?.startMonitoring(for: thirdBeaconRegion)
-//        // Start to send notifications detecting the iBeacon
-//        locationManager?.startRangingBeacons(in: thirdBeaconRegion)
-        
-//        registerRegions()
+
+        // Second iBeacon
+        let uuidSecondBeacon = UUID(uuidString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0")!
+        let secondBeaconRegion = CLBeaconRegion(proximityUUID: uuidSecondBeacon, major: 123, minor: 456, identifier: "Beacon 2")
+
+        // To start monitor a iBeacon region you must call this method at least once
+        locationManager?.startMonitoring(for: secondBeaconRegion)
+        // Start to send notifications detecting the iBeacon
+        locationManager?.startRangingBeacons(in: secondBeaconRegion)
+
+        // Third iBeacon
+        let uuidThirdBeacon = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935")!
+        let thirdBeaconRegion = CLBeaconRegion(proximityUUID: uuidThirdBeacon, major: 123, minor: 456, identifier: "Beacon 3")
+
+        // To start monitor a iBeacon region you must call this method at least once
+        locationManager?.startMonitoring(for: thirdBeaconRegion)
+        // Start to send notifications detecting the iBeacon
+        locationManager?.startRangingBeacons(in: thirdBeaconRegion)
     }
-    
-//    func registerRegions() {
-//
-//        for region in regions {
-//            let beaconRegion = CLBeaconRegion(proximityUUID: region, major: 123, minor: 456, identifier: "MyBeacon")
-//            locationManager?.startMonitoring(for: beaconRegion)
-//            locationManager?.startRangingBeacons(in: beaconRegion)
-//        }
-//
-//    }
     
     func update(distance: CLProximity, name: String) {
         UIView.animate(withDuration: 0.8) {
@@ -143,8 +130,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 isFirstDetection.toggle()
             }
             
+            // if there is no active beacon set the first beacon detected to be the active beacon
+            if currentUUID == nil { currentUUID = region.proximityUUID }
+            // if the active beacon is not the same as the region of the beacon return
+            guard currentUUID == region.proximityUUID else { return }
+            
             update(distance: beacon.proximity, name: beacon.proximityUUID.uuidString)
         } else {
+            // if there is no beacons detected and the active beacon is not the same as the region return
+            guard currentUUID == region.proximityUUID else { return }
+            // if there is no beacons detected and the active beacon is the same as the region, set the active beacon to nil
+            currentUUID = nil
             // if not found draw the initial style of the view
             update(distance: .unknown, name: "No Beacon")
         }
