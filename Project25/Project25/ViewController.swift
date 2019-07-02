@@ -25,11 +25,71 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         super.viewDidLoad()
         
         title = "Selfie Share"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showConnectionPrompt))
+        
+        let importPictureBtn = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
+        let sendMessageBtn = UIBarButtonItem(title: "Chat", style: .plain, target: self, action: #selector(sendMessage))
+        navigationItem.rightBarButtonItems = [importPictureBtn, sendMessageBtn]
+        
+        let actionBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showConnectionPrompt))
+        let peerConnectedBtn = UIBarButtonItem(title: "Users", style: .plain, target: self, action: #selector(showConnectedPeers))
+        navigationItem.leftBarButtonItems = [actionBtn, peerConnectedBtn]
         
         mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .required)
         mcSession?.delegate = self
+    }
+    
+    @objc func sendMessage() {
+        guard let mcSession = mcSession else { return }
+        
+        if mcSession.connectedPeers.count > 0 {
+            
+            let ac = UIAlertController(title: "Send a message", message: nil, preferredStyle: .alert)
+            ac.addTextField()
+            ac.addAction(UIAlertAction(title: "cancel", style: .cancel))
+            ac.addAction(UIAlertAction(title: "Send", style: .default) { action in
+                guard ac.textFields?[0].text?.count != 0 else { return }
+                
+                let stringToSend = mcSession.myPeerID.displayName + ": " + (ac.textFields?[0].text)!
+                let stringData = Data(stringToSend.utf8)
+                
+                // Try to send data to peers
+                do {
+                    try mcSession.send(stringData, toPeers: mcSession.connectedPeers, with: .reliable)
+                } catch {
+                    // show a message in case of an error
+                    let ac = UIAlertController(title: "Send Error", message: error.localizedDescription, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(ac, animated: true)
+                }
+            } )
+            
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "There are no users connected", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+        
+    }
+    
+    @objc func showConnectedPeers() {
+        guard let mcSession = mcSession else { return }
+        
+        if mcSession.connectedPeers.count == 0 {
+            let ac = UIAlertController(title: "There are no users connected", message: "Try to host a session, or join one", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            var peers = ""
+            
+            for (index, peer) in mcSession.connectedPeers.enumerated() {
+                peers += "\(index + 1). " + peer.displayName + "\n"
+            }
+            
+            let ac = UIAlertController(title: "Connected Peers:", message: peers, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(ac, animated: true)
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -127,16 +187,32 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         switch state {
         case .connected:
-            print("Connected: \(peerID.displayName)")
+            DispatchQueue.main.async { [weak self] in
+                let ac = UIAlertController(title: "Connected: \(peerID.displayName)", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                self?.present(ac, animated: true)
+            }
+            
             
         case .connecting:
-            print("Connected: \(peerID.displayName)")
+            print("Connecting: \(peerID.displayName)")
+            
             
         case .notConnected:
-            print("Connected: \(peerID.displayName)")
+            DispatchQueue.main.async { [weak self] in
+                let ac = UIAlertController(title: "Not Connected: \(peerID.displayName)", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                self?.present(ac, animated: true)
+            }
+            
             
         @unknown default:
-            print("Unknown state received: \(peerID.displayName)")
+            DispatchQueue.main.async { [weak self] in
+                let ac = UIAlertController(title: "Unknown state received: \(peerID.displayName)", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                self?.present(ac, animated: true)
+            }
+            
         }
     }
     
@@ -147,6 +223,12 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
             if let image = UIImage(data: data) {
                 self?.images.insert(image, at: 0)
                 self?.collectionView.reloadData()
+            } else {
+                let message = String(decoding: data, as: UTF8.self)
+                
+                let ac = UIAlertController(title: "You recieved a message", message: message, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                self?.present(ac, animated: true)
             }
         }
     }
