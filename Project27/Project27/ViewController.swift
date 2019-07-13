@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBAction func redrawTapped(_ sender: Any) {
         currentDrawType += 1
         
-        if currentDrawType > 5 {
+        if currentDrawType > 6 {
             currentDrawType = 0
         }
         
@@ -44,6 +44,9 @@ class ViewController: UIViewController {
             
         case 5:
             drawImagesAndText()
+            
+        case 6:
+            drawEmoji()
             
         default:
             break
@@ -172,6 +175,33 @@ class ViewController: UIViewController {
             
             let mouse = UIImage(named: "mouse")
             mouse?.draw(at: CGPoint(x: 300, y: 150))
+        }
+        
+        imageView.image = img
+    }
+    
+    func drawEmoji() {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
+        
+        let img = renderer.image { ctx in
+            ctx.cgContext.translateBy(x: 256, y: 256)
+            
+            let rotations = 5
+            let amount = (Double.pi) / 2.5
+            
+            ctx.cgContext.rotate(by: .pi / 5.7)
+            
+            ctx.cgContext.move(to: CGPoint(x: -11, y: 130))
+            
+            for _ in 0 ..< rotations {
+                ctx.cgContext.addLine(to: CGPoint(x: -30, y: 30))
+                ctx.cgContext.addLine(to: CGPoint(x: -128, y: 30))
+                ctx.cgContext.rotate(by: CGFloat(amount))
+            }
+            
+            ctx.cgContext.setFillColor(UIColor.yellow.cgColor)
+            
+            ctx.cgContext.drawPath(using: .fill)
         }
         
         imageView.image = img
