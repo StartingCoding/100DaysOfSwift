@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBAction func redrawTapped(_ sender: Any) {
         currentDrawType += 1
         
-        if currentDrawType > 6 {
+        if currentDrawType > 7 {
             currentDrawType = 0
         }
         
@@ -47,6 +47,9 @@ class ViewController: UIViewController {
             
         case 6:
             drawEmoji()
+            
+        case 7:
+            writeTwin()
             
         default:
             break
@@ -202,6 +205,41 @@ class ViewController: UIViewController {
             ctx.cgContext.setFillColor(UIColor.yellow.cgColor)
             
             ctx.cgContext.drawPath(using: .fill)
+        }
+        
+        imageView.image = img
+    }
+    
+    func writeTwin() {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
+        
+        let img = renderer.image { ctx in
+            let spacing = 40
+            
+            // Letter T
+            ctx.cgContext.translateBy(x: 100, y: 200)
+            
+            ctx.cgContext.move(to: CGPoint(x: 0, y: 0))
+            ctx.cgContext.addLine(to: CGPoint(x: 0, y: 50))
+            
+            ctx.cgContext.rotate(by: .pi / 2)
+            
+            ctx.cgContext.move(to: CGPoint(x: 0, y: -25))
+            ctx.cgContext.addLine(to: CGPoint(x: 0, y: 25))
+            
+            ctx.cgContext.rotate(by: .pi + (.pi / 2))
+            
+            // Letter W
+            ctx.cgContext.move(to: CGPoint(x: spacing, y: 0))
+            ctx.cgContext.addLine(to: CGPoint(x: spacing + 12, y: 50))
+            
+            ctx.cgContext.rotate(by: .pi + (.pi / 2))
+            ctx.cgContext.move(to: CGPoint(x: spacing + 12, y: 0))
+            ctx.cgContext.addLine(to: CGPoint(x: 0, y: 10))
+            
+            
+            ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
+            ctx.cgContext.strokePath()
         }
         
         imageView.image = img
