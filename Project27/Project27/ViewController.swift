@@ -214,28 +214,55 @@ class ViewController: UIViewController {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
         
         let img = renderer.image { ctx in
-            let spacing = 40
+            let spacing = 15
+            var letterStartingPoint = 15
+            let lenghtLineLetter = 50
+            
+            // Start String
+            ctx.cgContext.translateBy(x: 187, y: 228)
             
             // Letter T
-            ctx.cgContext.translateBy(x: 100, y: 200)
-            
             ctx.cgContext.move(to: CGPoint(x: 0, y: 0))
-            ctx.cgContext.addLine(to: CGPoint(x: 0, y: 50))
+            ctx.cgContext.addLine(to: CGPoint(x: 0, y: lenghtLineLetter))
             
-            ctx.cgContext.rotate(by: .pi / 2)
+            ctx.cgContext.move(to: CGPoint(x: -(lenghtLineLetter / 2), y: 0))
+            ctx.cgContext.addLine(to: CGPoint(x: lenghtLineLetter / 2, y: 0))
             
-            ctx.cgContext.move(to: CGPoint(x: 0, y: -25))
-            ctx.cgContext.addLine(to: CGPoint(x: 0, y: 25))
-            
-            ctx.cgContext.rotate(by: .pi + (.pi / 2))
+            // Reset for next letter
+            letterStartingPoint += lenghtLineLetter / 2
             
             // Letter W
-            ctx.cgContext.move(to: CGPoint(x: spacing, y: 0))
-            ctx.cgContext.addLine(to: CGPoint(x: spacing + 12, y: 50))
+            var spacingW = letterStartingPoint
+            for _ in 0 ..< 2 {
+                ctx.cgContext.move(to: CGPoint(x: spacingW, y: 0))
+                spacingW += 12
+                ctx.cgContext.addLine(to: CGPoint(x: spacingW, y: lenghtLineLetter))
+                
+                ctx.cgContext.move(to: CGPoint(x: spacingW, y: lenghtLineLetter))
+                spacingW += 12
+                ctx.cgContext.addLine(to: CGPoint(x: spacingW, y: 0))
+            }
             
-            ctx.cgContext.rotate(by: .pi + (.pi / 2))
-            ctx.cgContext.move(to: CGPoint(x: spacing + 12, y: 0))
-            ctx.cgContext.addLine(to: CGPoint(x: 0, y: 10))
+            // Reset for next letter
+            letterStartingPoint = spacingW + spacing
+            
+            // Letter I
+            ctx.cgContext.move(to: CGPoint(x: letterStartingPoint, y: 0))
+            ctx.cgContext.addLine(to: CGPoint(x: letterStartingPoint, y: lenghtLineLetter))
+            
+            // Reset for next letter
+            letterStartingPoint += spacing
+            
+            // Letter N
+            var spacingN = letterStartingPoint
+            for lineOfLetterN in 0 ..< 3 {
+                ctx.cgContext.move(to: CGPoint(x: spacingN, y: 0))
+                
+                // if we are in the middle of the letter move to the right
+                if lineOfLetterN == 1 { spacingN += lenghtLineLetter / 2 }
+                
+                ctx.cgContext.addLine(to: CGPoint(x: spacingN, y: lenghtLineLetter))
+            }
             
             
             ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
