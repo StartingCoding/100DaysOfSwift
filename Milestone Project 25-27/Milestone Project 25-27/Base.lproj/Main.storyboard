@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Milestone_Project_25_27" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meme Generator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ey0-ff-U0I">
+                                <rect key="frame" x="63" y="69" width="288" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-Wl-ohR">
+                                <rect key="frame" x="117.5" y="663" width="179" height="42"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Add Bottom Text">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YA2-A7-zg8">
+                                <rect key="frame" x="47" y="293" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="44S-Y4-dm2"/>
+                                    <constraint firstAttribute="height" constant="320" id="xaf-SE-TGK"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9N-No-pes" userLabel="AddImage">
+                                <rect key="frame" x="196" y="442" width="22" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="addImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Hg-Ng-xw4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVl-XD-mNv">
+                                <rect key="frame" x="181" y="474" width="52" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGk-WK-AfH">
+                                <rect key="frame" x="187" y="804" width="40" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btD-qp-7d8">
+                                <rect key="frame" x="137" y="201" width="140" height="42"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Add Top Text">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTopText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LGA-Le-kVp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.070588235294117646" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OGk-WK-AfH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5d7-R3-rGJ"/>
+                            <constraint firstItem="c9N-No-pes" firstAttribute="centerX" secondItem="YA2-A7-zg8" secondAttribute="centerX" id="IMm-2k-Ccc"/>
+                            <constraint firstItem="YA2-A7-zg8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JE4-zo-xrJ"/>
+                            <constraint firstItem="c9N-No-pes" firstAttribute="centerY" secondItem="YA2-A7-zg8" secondAttribute="centerY" id="K6Q-D8-AhU"/>
+                            <constraint firstItem="btD-qp-7d8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KhP-N3-C0J"/>
+                            <constraint firstItem="wVl-XD-mNv" firstAttribute="centerX" secondItem="c9N-No-pes" secondAttribute="centerX" id="QYh-8Q-w5v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OGk-WK-AfH" secondAttribute="bottom" constant="25" id="SOC-ye-OPs"/>
+                            <constraint firstItem="wVl-XD-mNv" firstAttribute="top" secondItem="c9N-No-pes" secondAttribute="bottom" constant="10" id="Sg8-zo-BTe"/>
+                            <constraint firstItem="YA2-A7-zg8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ZHR-do-QEi"/>
+                            <constraint firstItem="YA2-A7-zg8" firstAttribute="top" secondItem="btD-qp-7d8" secondAttribute="bottom" constant="50" id="iNb-QO-FCV"/>
+                            <constraint firstItem="mlE-Wl-ohR" firstAttribute="top" secondItem="YA2-A7-zg8" secondAttribute="bottom" constant="50" id="r5I-Jh-SLq"/>
+                            <constraint firstItem="Ey0-ff-U0I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="uFy-Th-FaA"/>
+                            <constraint firstItem="Ey0-ff-U0I" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wJi-b0-QZ9"/>
+                            <constraint firstItem="mlE-Wl-ohR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zmW-x5-FAJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="addImageBtn" destination="c9N-No-pes" id="C5F-36-XU8"/>
+                        <outlet property="addImageLabel" destination="wVl-XD-mNv" id="mHT-za-x9D"/>
+                        <outlet property="imageView" destination="YA2-A7-zg8" id="wRk-r6-qkN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="106.47321428571428"/>
+        </scene>
+    </scenes>
+</document>
