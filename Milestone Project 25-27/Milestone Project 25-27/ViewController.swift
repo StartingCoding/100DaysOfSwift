@@ -43,9 +43,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func addTopText(_ sender: Any) {
+        // If there is an image, let the user type the text on top
+        presentTextController(on: .top)
+    }
+    
+    @IBAction func addBottomText(_ sender: Any) {
+        // If there is an image, let the user type the text on bottom
+        presentTextController(on: .bottom)
+    }
+    
+    // If there is an image, let the user type the text
+    func presentTextController(on position: PositionText) {
         // If there is an image, let the user type the text
         if imageView.image != nil {
-            let ac = UIAlertController(title: "Top Text", message: nil, preferredStyle: .alert)
+            let ac = UIAlertController(title: "Bottom Text", message: nil, preferredStyle: .alert)
             ac.addTextField()
             
             ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] action in
@@ -53,7 +64,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 guard let text = ac.textFields?[0].text else { return }
                 
                 // Render the text on top of the image
-                self?.render(text: text, on: .top)
+                self?.render(text: text, on: position)
             })
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             
@@ -68,31 +79,53 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Render text on the image based on position
     func render(text: String, on: PositionText) {
+        // Create the renderer object
         let renderer = UIGraphicsImageRenderer(size: imageView.image!.size)
         
+        // Create and render an image form the context object
         let img = renderer.image { ctx in
+            // Draw the initial image
             imageView.image?.draw(at: CGPoint(x: 0, y: 0))
             
+            // Set the text to be centered
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .center
             
+            // Set a text shadow to enhance readability
             let shadowStyle = NSShadow()
             shadowStyle.shadowColor = UIColor.white
             shadowStyle.shadowOffset = CGSize(width: 5, height: 5)
             
+            // Make a dictionary of settings
             let attr: [NSAttributedString.Key: Any] = [
-                //.backgroundColor: UIColor.white,
+                .backgroundColor: UIColor.white,
                 .paragraphStyle : paragraphStyle,
-                .font : UIFont(name: "Chalkduster", size: 88),
+                .font : UIFont(name: "Arial", size: 99)!,
                 .shadow : shadowStyle
             ]
             
             let attrText = NSAttributedString(string: text, attributes: attr)
             
-            attrText.draw(with: CGRect(x: 0, y: 0, width: imageView.frame.width, height: imageView.frame.height), options: .usesLineFragmentOrigin, context: nil)
+            let x = imageView.image?.size.width
+            let y = imageView.image?.size.height
+            
+            if on == .top {
+                attrText.draw(with: CGRect(x: 0, y: 0, width: x!, height: y!), options: .usesLineFragmentOrigin, context: nil)
+            } else if on == .bottom {
+                attrText.draw(with: CGRect(x: 0, y: y! - 99, width: x!, height: y!), options: .usesLineFragmentOrigin, context: nil)
+            }
         }
         
+        // Display the image created from the renderer
         imageView.image = img
+    }
+    
+    @IBAction func shareMeme(_ sender: Any) {
+        // If there's not an image return
+        guard let imageToSend = imageView.image else { return }
+        
+        let ac = UIActivityViewController(activityItems: [imageToSend], applicationActivities: nil)
+        present(ac, animated: true)
     }
     
 }
