@@ -91,6 +91,7 @@ class ViewController: UIViewController {
     func unlockSecretMessage() {
         secret.isHidden = false
         title = "Secret Stuff"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(saveSecretMessage))
         
         // KeychainWrapper is an easier way to managed iOS Keychain
         // If there is a key already saved in KeychainWrapper, load it.
@@ -108,6 +109,7 @@ class ViewController: UIViewController {
         
         secret.isHidden = true
         title = "Nothing to see here"
+        navigationItem.rightBarButtonItem = .none
     }
     
 }
