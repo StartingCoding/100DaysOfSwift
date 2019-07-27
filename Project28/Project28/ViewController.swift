@@ -81,8 +81,35 @@ class ViewController: UIViewController {
                 
             }
         } else {
-            let ac = UIAlertController(title: "Biometry unavailable", message: "Your device is not configured for biometry authentication.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            // This is a fallback for who doesn't have a FaceID or TouchID enabled
+            let ac = UIAlertController(title: "Biometry unavailable", message: "Your device is not configured for biometry authentication. Enter the password.", preferredStyle: .alert)
+            ac.addTextField()
+            ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] action in
+                // Return if the user didn't type anyting
+                guard ac.textFields![0].text!.count > 0 else { return }
+                guard let textFieldPass = ac.textFields![0].text else { return }
+                
+                // Make changes always on the main thread
+                DispatchQueue.main.async {
+                    // If the user typed the same password unlock secret stuff
+                    if textFieldPass == KeychainWrapper.standard.string(forKey: "password") {
+                        self?.unlockSecretMessage()
+                        
+                    // If the user typed the wrong password display an alert
+                    } else if textFieldPass != KeychainWrapper.standard.string(forKey: "password") {
+                        let ac = UIAlertController(title: "Wrong Password", message: nil, preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self?.present(ac, animated: true)
+                        
+                    // If the user type  a password cut there is not a password already saved in the keychain, save it
+                    } else if !KeychainWrapper.standard.hasValue(forKey: "password") {
+                        KeychainWrapper.standard.set(textFieldPass, forKey: "password")
+                        self?.unlockSecretMessage()
+                    }
+                }
+                
+            })
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             present(ac, animated: true)
         }
         
