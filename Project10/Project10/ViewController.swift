@@ -6,6 +6,8 @@
 //  Copyright © 2019 Loris. All rights reserved.
 //
 
+// LocationAuthentication is the framework you can use for FaceID or TouchID
+import LocalAuthentication
 import UIKit
 
 class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -14,7 +16,11 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Authenticate", style: .plain, target: self, action: #selector(authenticate))
+        
+        // Set up notification when the app goes to background or the user go to the multitasking (aka the app is not in the foreground anymore)
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(lockScreen), name: UIApplication.willResignActiveNotification, object: nil)
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -101,5 +107,44 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         present(acd, animated: true)
     }
+    
+    @objc func authenticate() {
+        // Create the (Objective-C) object in order to work with authentication
+        let context = LAContext()
+        // Create a (Objective-C) error
+        var error: NSError?
+        
+        // If the user can use a valid biometric authentication
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Identify Yourself!"
+            
+            // Let the user use biometric authentification mechanism (FaceID or TouchID)
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] (success, authenticationError) in
+                
+                // Make changes in the UI always on the main thread
+                DispatchQueue.main.async {
+                    if success {
+                        self?.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self?.addNewPerson))
+                        self?.collectionView.isHidden = false
+                    } else {
+                        let ac = UIAlertController(title: "Authentication Error!", message: "You could not be verified; please try again.", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self?.present(ac, animated: true)
+                    }
+                }
+            }
+        } else {
+            // Let the user know that FaceID or TouchID is not enabled.
+            let ac = UIAlertController(title: "Authentication Error!", message: "You don't have FaceID or TouchID enabled.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(ac, animated: true)
+        }
+    }
+    
+    @objc func lockScreen() {
+        navigationItem.leftBarButtonItem = .none
+        collectionView.isHidden = true
+    }
+    
 }
 
