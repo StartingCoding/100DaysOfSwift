@@ -10,6 +10,7 @@ import SpriteKit
 import UIKit
 
 class BuildingNode: SKSpriteNode {
+    // Storing the building, and its various state, as an UIImage
     var currentImage: UIImage!
     
     func setup() {
@@ -76,5 +77,36 @@ class BuildingNode: SKSpriteNode {
         
         // return the building with an UIImage
         return img
+    }
+    
+    // When a buiding is hit:
+    // - take the currentImage of the building
+    // - draw it in a new Core Graphics context
+    // - convert the point of collision with a point in the context
+    // - draw an ellipse with a .clear blendMode
+    // - draw the final UIImage and save it in the currentImage
+    // - re-configure its new physics
+    func hit(at point: CGPoint) {
+        // The convertedPoint is going to be:
+        // - the center of the x of the building + the x of the point of contact (horizontal)
+        // - the center of the y of the building + the y of the poit of contact with an absolute value (vertical)
+        let convertedPoint = CGPoint(x: point.x + size.width / 2.0, y: abs(point.y - (size.height / 2.0)))
+        print(point.x, point.y)
+        print(size.width, size.height)
+        print(convertedPoint.x, convertedPoint.y)
+        
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let img = renderer.image { ctx in
+            currentImage.draw(at: .zero)
+            
+            ctx.cgContext.addEllipse(in: CGRect(x: convertedPoint.x - 32, y: convertedPoint.y - 32, width: 64, height: 64))
+            ctx.cgContext.setBlendMode(.clear)
+            ctx.cgContext.drawPath(using: .fill)
+        }
+        
+        texture = SKTexture(image: img)
+        currentImage = img
+        
+        configurePhysics()
     }
 }
