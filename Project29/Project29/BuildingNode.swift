@@ -91,9 +91,6 @@ class BuildingNode: SKSpriteNode {
         // - the center of the x of the building + the x of the point of contact (horizontal)
         // - the center of the y of the building + the y of the poit of contact with an absolute value (vertical)
         let convertedPoint = CGPoint(x: point.x + size.width / 2.0, y: abs(point.y - (size.height / 2.0)))
-        print(point.x, point.y)
-        print(size.width, size.height)
-        print(convertedPoint.x, convertedPoint.y)
         
         let renderer = UIGraphicsImageRenderer(size: size)
         let img = renderer.image { ctx in
