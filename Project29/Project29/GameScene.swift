@@ -179,10 +179,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // If the banana hit a player, destroy that player
         if firstNode.name == "banana" && secondNode.name == "player1" {
             destroy(player: player1)
+            viewController?.player2Score += 1
         }
         
         if firstNode.name == "banana" && secondNode.name == "player2" {
             destroy(player: player2)
+            viewController?.player1Score += 1
         }
         
     }
@@ -198,20 +200,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Load a new GameScene after 2 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            // Make a new GameScene
-            let newGame = GameScene(size: self.size)
-            // Make the new GameScene viewController (aka GameViewController) our previously GameViewController
-            newGame.viewController = self.viewController
-            // Make the reference for the scene on our GameViewController the newGame (scene) we have created
-            self.viewController?.currentGame = newGame
+            // If the player has 3 points end the game
+            if self.viewController?.player1Score == 3 || self.viewController?.player2Score == 3 {
+                // Make the EndScene
+                let endGame = GameOverScene(size: self.size)
+                // Make GameViewController the viewController of the EndScene
+                endGame.viewController = self.viewController
+                // Connect the EndScene we've just created with the reference on GameViewController
+                self.viewController?.endGame = endGame
+                // Set up a transition to change scene
+                let transition = SKTransition.doorway(withDuration: 1.5)
+                // Make the current scene present the EndScene
+                self.view?.presentScene(endGame, transition: transition)
+            } else {
+                // Make a new GameScene
+                let newGame = GameScene(size: self.size)
+                // Make the new GameScene viewController (aka GameViewController) our previously GameViewController
+                newGame.viewController = self.viewController
+                // Make the reference for the scene on our GameViewController the newGame (scene) we have created
+                self.viewController?.currentGame = newGame
+                
+                //Make the lost player the currentPlayer of the next GameScene
+                self.changePlayer()
+                newGame.currentPlayer = self.currentPlayer
+                
+                // Set up a transition to display the new GameScene
+                let transition = SKTransition.doorway(withDuration: 1.5)
+                self.view?.presentScene(newGame, transition: transition)
+            }
             
-            //Make the lost player the currentPlayer of the next GameScene
-            self.changePlayer()
-            newGame.currentPlayer = self.currentPlayer
-            
-            // Set up a transition to display the new GameScene
-            let transition = SKTransition.doorway(withDuration: 1.5)
-            self.view?.presentScene(newGame, transition: transition)
         }
     }
     

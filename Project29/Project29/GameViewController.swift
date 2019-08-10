@@ -11,8 +11,9 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-    // Set up this variable so it's going to be easier accessing the scene or the controller of the game
+    // Set up variables so it's going to be easier accessing the scene or the controller of the game
     var currentGame: GameScene?
+    var endGame: GameOverScene?
     
     @IBOutlet var angleSlider: UISlider!
     @IBOutlet var angleLabel: UILabel!
@@ -20,6 +21,19 @@ class GameViewController: UIViewController {
     @IBOutlet var velocityLabel: UILabel!
     @IBOutlet var launchButton: UIButton!
     @IBOutlet var playerNumber: UILabel!
+    @IBOutlet var player1ScoreLabel: UILabel!
+    @IBOutlet var player2ScoreLabel: UILabel!
+    
+    var player1Score = 0 {
+        willSet {
+            player1ScoreLabel.text = "Score: \(newValue)"
+        }
+    }
+    var player2Score = 0 {
+        willSet {
+            player2ScoreLabel.text = "Score: \(newValue)"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +81,9 @@ class GameViewController: UIViewController {
         
         launchButton.isHidden = true
         
+        player1ScoreLabel.isHidden = true
+        player2ScoreLabel.isHidden = true
+        
         currentGame?.launch(angle: Int(angleSlider.value),velocity: Int(velocitySlider.value))
     }
     
@@ -84,6 +101,9 @@ class GameViewController: UIViewController {
         velocityLabel.isHidden = false
         
         launchButton.isHidden = false
+        
+        player1ScoreLabel.isHidden = false
+        player2ScoreLabel.isHidden = false
     }
     
     override var shouldAutorotate: Bool {

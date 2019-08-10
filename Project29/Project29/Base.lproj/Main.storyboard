@@ -64,6 +64,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcW-U4-7Z9">
+                                <rect key="frame" x="120" y="71" width="100" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79K-2i-WhP">
+                                <rect key="frame" x="804" y="71" width="100" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -72,6 +86,8 @@
                         <outlet property="angleLabel" destination="d0C-bY-eLR" id="IT4-mo-Ra7"/>
                         <outlet property="angleSlider" destination="a7u-vW-CBA" id="mfF-LP-vfU"/>
                         <outlet property="launchButton" destination="7i0-YM-UH7" id="W5o-Ul-UYC"/>
+                        <outlet property="player1ScoreLabel" destination="zcW-U4-7Z9" id="dvx-qC-f6h"/>
+                        <outlet property="player2ScoreLabel" destination="79K-2i-WhP" id="ClQ-XY-YGa"/>
                         <outlet property="playerNumber" destination="qtt-YG-APn" id="fna-nj-cKH"/>
                         <outlet property="velocityLabel" destination="rnh-7x-p0j" id="nqw-jS-MzG"/>
                         <outlet property="velocitySlider" destination="em7-es-dPO" id="kA3-zh-rh9"/>
