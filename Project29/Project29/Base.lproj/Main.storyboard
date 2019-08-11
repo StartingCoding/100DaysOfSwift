@@ -102,9 +102,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wr-hE-Q11">
+                                <rect key="frame" x="935" y="91" width="44.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Wr-hE-Q11" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="71" id="0pE-cN-jn6"/>
                             <constraint firstItem="qtt-YG-APn" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="2T4-Lh-lmj"/>
                             <constraint firstItem="rnh-7x-p0j" firstAttribute="leading" secondItem="em7-es-dPO" secondAttribute="trailing" constant="7" id="2Z3-VU-VnX"/>
                             <constraint firstItem="em7-es-dPO" firstAttribute="leading" secondItem="d0C-bY-eLR" secondAttribute="trailing" constant="37" id="6Ld-e0-j24"/>
@@ -120,6 +127,7 @@
                             <constraint firstItem="a7u-vW-CBA" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="10" id="bXa-fQ-hQH"/>
                             <constraint firstItem="qtt-YG-APn" firstAttribute="leading" secondItem="zcW-U4-7Z9" secondAttribute="trailing" constant="150" id="fuf-Kd-JkI"/>
                             <constraint firstItem="rnh-7x-p0j" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="14" id="guM-xi-Dr2"/>
+                            <constraint firstItem="6Wr-hE-Q11" firstAttribute="leading" secondItem="79K-2i-WhP" secondAttribute="trailing" constant="31.5" id="hXP-wB-ySH"/>
                             <constraint firstItem="a7u-vW-CBA" firstAttribute="centerX" secondItem="zcW-U4-7Z9" secondAttribute="centerX" id="uIn-Ug-Y9K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -133,6 +141,7 @@
                         <outlet property="playerNumber" destination="qtt-YG-APn" id="fna-nj-cKH"/>
                         <outlet property="velocityLabel" destination="rnh-7x-p0j" id="nqw-jS-MzG"/>
                         <outlet property="velocitySlider" destination="em7-es-dPO" id="kA3-zh-rh9"/>
+                        <outlet property="windLabel" destination="6Wr-hE-Q11" id="G5E-9I-iuF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

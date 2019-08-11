@@ -34,6 +34,8 @@ class GameOverScene: SKScene {
         
         self.viewController?.playerNumber.isHidden = true
         
+        self.viewController?.windLabel.isHidden = true
+        
         if self.viewController?.currentGame?.currentPlayer != nil {
             winnerPlayer = self.viewController?.currentGame?.currentPlayer
         }
@@ -94,6 +96,8 @@ class GameOverScene: SKScene {
             self.viewController?.player2ScoreLabel.isHidden = false
             
             self.viewController?.playerNumber.isHidden = false
+            
+            self.viewController?.windLabel.isHidden = false
         }
     }
 }

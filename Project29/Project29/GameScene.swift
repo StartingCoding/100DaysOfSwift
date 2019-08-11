@@ -151,6 +151,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             banana.physicsBody?.applyImpulse(impulse)
         }
         
+        // Randomize wind when the launch ends
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            let randomWind = CGFloat.random(in: -4.00 ... 4.00)
+            
+            if randomWind > 2.5 {
+                self.viewController?.windLabel.text = "Wind: ->"
+                self.physicsWorld.gravity = CGVector(dx: randomWind, dy: -9.8)
+            } else if randomWind > -2.5 {
+                self.viewController?.windLabel.text = "Wind:"
+                self.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
+            } else {
+                self.viewController?.windLabel.text = "Wind: <-"
+                self.physicsWorld.gravity = CGVector(dx: randomWind, dy: -9.8)
+            }
+        }
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {

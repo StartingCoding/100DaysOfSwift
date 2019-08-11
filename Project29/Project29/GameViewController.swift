@@ -23,6 +23,7 @@ class GameViewController: UIViewController {
     @IBOutlet var playerNumber: UILabel!
     @IBOutlet var player1ScoreLabel: UILabel!
     @IBOutlet var player2ScoreLabel: UILabel!
+    @IBOutlet var windLabel: UILabel!
     
     var player1Score = 0 {
         willSet {
