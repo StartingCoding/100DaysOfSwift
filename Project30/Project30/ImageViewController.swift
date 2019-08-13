@@ -9,9 +9,9 @@
 import UIKit
 
 class ImageViewController: UIViewController {
-	var owner: SelectionViewController!
-	var image: String!
-	var animTimer: Timer!
+	weak var owner: SelectionViewController?
+	var image: String?
+	var animTimer: Timer?
 
 	var imageView: UIImageView!
 
@@ -48,8 +48,11 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		title = image.replacingOccurrences(of: "-Large.jpg", with: "")
-		let original = UIImage(named: image)!
+		title = image?.replacingOccurrences(of: "-Large.jpg", with: "")
+        
+        // Using UIImage(contentsOfFile:) instead of UIImage(named:) ensure that the image could be destroyed after used to free up memeory
+        guard let path = Bundle.main.path(forResource: image, ofType: nil) else { fatalError("Couldn't find path in ImageViewController") }
+        guard let original = UIImage(contentsOfFile: path) else { fatalError("Couldn't load images in ImageViewController") }
 
 		let renderer = UIGraphicsImageRenderer(size: original.size)
 
@@ -72,15 +75,24 @@ class ImageViewController: UIViewController {
 			self.imageView.alpha = 1
 		}
 	}
+    
+    // When the view disappear stop the timer so it's not creating a strong reference to a view that it will be destroyed so it can free up memory
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        animTimer?.invalidate()
+    }
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		let defaults = UserDefaults.standard
-		var currentVal = defaults.integer(forKey: image)
-		currentVal += 1
-
-		defaults.set(currentVal, forKey:image)
+        
+        if let image = image {
+            var currentVal = defaults.integer(forKey: image)
+            currentVal += 1
+            
+            defaults.set(currentVal, forKey: image)
+        }
 
 		// tell the parent view controller that it should refresh its table counters when we go back
-		owner.dirty = true
+		owner?.dirty = true
 	}
 }

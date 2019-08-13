@@ -10,7 +10,6 @@ import UIKit
 
 class SelectionViewController: UITableViewController {
 	var items = [String]() // this is the array that will store the filenames to load
-	var viewControllers = [UIViewController]() // create a cache of the detail view controllers for faster loading
 	var dirty = false
 
     override func viewDidLoad() {
@@ -63,8 +62,8 @@ class SelectionViewController: UITableViewController {
 		// find the image for this cell, and load its thumbnail
 		let currentImage = items[indexPath.row % items.count]
 		let imageRootName = currentImage.replacingOccurrences(of: "Large", with: "Thumb")
-		let path = Bundle.main.path(forResource: imageRootName, ofType: nil)!
-		let original = UIImage(contentsOfFile: path)!
+        guard let path = Bundle.main.path(forResource: imageRootName, ofType: nil) else { fatalError("Couldn't load path") }
+        guard let original = UIImage(contentsOfFile: path) else { fatalError("Couldn't load image from path") }
 
         // Make a CGRect of the correct size of the table row height
         let rendererRect = CGRect(origin: .zero, size: CGSize(width: 90, height: 90))
@@ -103,8 +102,6 @@ class SelectionViewController: UITableViewController {
 		// mark us as not needing a counter reload when we return
 		dirty = false
 
-		// add to our view controller cache and show
-		viewControllers.append(vc)
-		navigationController!.pushViewController(vc, animated: true)
+		navigationController?.pushViewController(vc, animated: true)
 	}
 }
