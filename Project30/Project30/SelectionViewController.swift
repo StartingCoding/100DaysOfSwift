@@ -9,7 +9,8 @@
 import UIKit
 
 class SelectionViewController: UITableViewController {
-	var items = [String]() // this is the array that will store the filenames to load
+	//var images = [String]() // this is the array that will store the filenames to load
+    var thumbnails = [String]()
 	var dirty = false
 
     override func viewDidLoad() {
@@ -25,13 +26,17 @@ class SelectionViewController: UITableViewController {
 		// load all the JPEGs into our array
 		let fm = FileManager.default
 
-		if let tempItems = try? fm.contentsOfDirectory(atPath: Bundle.main.resourcePath!) {
-			for item in tempItems {
-				if item.range(of: "Large") != nil {
-					items.append(item)
-				}
-			}
-		}
+        
+        if let tempItems = try? fm.contentsOfDirectory(atPath: Bundle.main.resourcePath!) {
+            for item in tempItems {
+                if item.contains("Thumb.jpg") {
+                    thumbnails.append(item)
+                }
+            }
+        }
+        //self.images.sort()
+        thumbnails.sort()
+        
     }
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +57,7 @@ class SelectionViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return items.count * 10
+        return thumbnails.count * 10
     }
 
 
@@ -60,10 +65,10 @@ class SelectionViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
 		// find the image for this cell, and load its thumbnail
-		let currentImage = items[indexPath.row % items.count]
-		let imageRootName = currentImage.replacingOccurrences(of: "Large", with: "Thumb")
-        guard let path = Bundle.main.path(forResource: imageRootName, ofType: nil) else { fatalError("Couldn't load path") }
-        guard let original = UIImage(contentsOfFile: path) else { fatalError("Couldn't load image from path") }
+		let currentImage = thumbnails[indexPath.row % thumbnails.count]
+        
+        guard let path = Bundle.main.path(forResource: currentImage, ofType: nil) else { fatalError("Couldn't load path") }
+        guard let original = UIImage(contentsOfFile: path) else { fatalError("Couldn't load image from path: \(path)") }
 
         // Make a CGRect of the correct size of the table row height
         let rendererRect = CGRect(origin: .zero, size: CGSize(width: 90, height: 90))
@@ -96,7 +101,7 @@ class SelectionViewController: UITableViewController {
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let vc = ImageViewController()
-		vc.image = items[indexPath.row % items.count]
+		vc.image = thumbnails[indexPath.row % thumbnails.count]
 		vc.owner = self
 
 		// mark us as not needing a counter reload when we return
@@ -104,4 +109,9 @@ class SelectionViewController: UITableViewController {
 
 		navigationController?.pushViewController(vc, animated: true)
 	}
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
 }
